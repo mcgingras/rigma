@@ -8,6 +8,7 @@ import {
   unlinkSync,
 } from "fs";
 import { createHash } from "crypto";
+import { isDevMode } from "@/lib/mode";
 
 const SCREENSHOTS_DIR = join(process.cwd(), "public/screenshots");
 const HASHES_DIR = join(process.cwd(), "public/screenshots/.hashes");
@@ -53,6 +54,7 @@ function deleteScreenshot(pageId: string) {
 }
 
 export async function takeScreenshot(pageId: string) {
+  const isDev = isDevMode();
   console.log("Taking screenshot for page:", pageId);
 
   const screenshotPath = join(SCREENSHOTS_DIR, `${pageId}.png`);
@@ -67,6 +69,10 @@ export async function takeScreenshot(pageId: string) {
   // Check if screenshot exists and content hasn't changed
   if (existsSync(screenshotPath) && storedHash === currentHash) {
     console.log(`Using existing screenshot for ${pageId} (content unchanged)`);
+    return publicPath;
+  }
+
+  if (isDev) {
     return publicPath;
   }
 

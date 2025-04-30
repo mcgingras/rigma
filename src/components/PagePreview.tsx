@@ -39,7 +39,7 @@ export default function PagePreview({ pageId }: PagePreviewProps) {
     };
 
     generateScreenshot();
-  }, [pageId, retryCount]);
+  }, [pageId, retryCount, isDev]);
 
   if (error) {
     return (

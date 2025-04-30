@@ -60,6 +60,11 @@ export async function takeScreenshot(pageId: string) {
   const screenshotPath = join(SCREENSHOTS_DIR, `${pageId}.png`);
   const publicPath = `/screenshots/${pageId}.png`;
 
+  // In prod, just return screenshots. Theres no way for them to be diffed.
+  if (!isDev) {
+    return publicPath;
+  }
+
   // Get current and stored hashes
   const currentHash = getPageContentHash(pageId);
   const storedHash = getStoredHash(pageId);
@@ -69,10 +74,6 @@ export async function takeScreenshot(pageId: string) {
   // Check if screenshot exists and content hasn't changed
   if (existsSync(screenshotPath) && storedHash === currentHash) {
     console.log(`Using existing screenshot for ${pageId} (content unchanged)`);
-    return publicPath;
-  }
-
-  if (isDev) {
     return publicPath;
   }
 

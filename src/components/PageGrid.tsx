@@ -4,8 +4,7 @@ import Link from "next/link";
 import PagePreview from "./PagePreview";
 
 export default function PageGrid() {
-  const { pages, selectPage, duplicatePage, openInEditor, refreshPages } =
-    usePageStore();
+  const { pages, duplicatePage, refreshPages } = usePageStore();
 
   useEffect(() => {
     refreshPages();
@@ -26,12 +25,6 @@ export default function PageGrid() {
               {page.name}
             </Link>
             <div className="space-x-2">
-              <button
-                onClick={() => openInEditor(page.id)}
-                className="text-sm text-blue-500 hover:text-blue-700"
-              >
-                Edit
-              </button>
               <button
                 onClick={() => duplicatePage(page.id)}
                 className="text-sm text-blue-500 hover:text-blue-700"

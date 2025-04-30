@@ -1,11 +1,5 @@
 import { create } from "zustand";
 import { Page, PageState } from "@/types/page";
-import {
-  listPages,
-  copyPage,
-  getPageFilePath,
-  ensurePagesDirectory,
-} from "@/lib/fileUtils";
 
 interface PageStore extends PageState {
   addPage: (page: Omit<Page, "id" | "createdAt" | "updatedAt">) => void;
@@ -14,7 +8,6 @@ interface PageStore extends PageState {
   selectPage: (id: string) => void;
   duplicatePage: (id: string) => Promise<void>;
   refreshPages: () => Promise<void>;
-  openInEditor: (id: string) => Promise<void>;
 }
 
 export const usePageStore = create<PageStore>((set) => ({
@@ -90,11 +83,5 @@ export const usePageStore = create<PageStore>((set) => ({
         { ...pageToDuplicate, id: newName, name: newName },
       ],
     }));
-  },
-
-  openInEditor: async (id) => {
-    await fetch(`/api/pages/${id}/open`, {
-      method: "POST",
-    });
   },
 }));

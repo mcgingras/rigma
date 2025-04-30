@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import PageGrid from "@/components/PageGrid";
 import { usePageStore } from "@/store/usePageStore";
+import { Page } from "@/types/page";
 
 export default function Home() {
   const { refreshPages } = usePageStore();
@@ -18,7 +19,7 @@ export default function Home() {
 
     // Check if name exists
     const existingPages = await fetch("/api/pages").then((res) => res.json());
-    while (existingPages.some((p: any) => p.name === finalName)) {
+    while (existingPages.some((p: Page) => p.name === finalName)) {
       finalName = `${name}${counter}`;
       counter++;
     }

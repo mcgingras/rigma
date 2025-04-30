@@ -2,20 +2,41 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { isDevMode } from "@/lib/mode";
 
-interface PagePreviewProps {
-  pageId: string;
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
 }
 
-export default function PagePreview({ pageId }: PagePreviewProps) {
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default function PreviewPage({ params }: PageProps) {
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [retryCount, setRetryCount] = useState(0);
+  const [pageId, setPageId] = useState<string | null>(null);
+  const isDev = isDevMode();
 
   useEffect(() => {
+    const loadParams = async () => {
+      const resolvedParams = await params;
+      setPageId(resolvedParams.id);
+    };
+    loadParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (!pageId) return;
+
     const generateScreenshot = async () => {
       try {
-        const response = await fetch(`/api/pages/${pageId}/screenshot`);
+        // Add a cache-busting parameter
+        const response = await fetch(
+          `/api/pages/${pageId}/screenshot?t=${Date.now()}`
+        );
         if (!response.ok) {
           const data = await response.json();
           throw new Error(data.error || "Failed to generate screenshot");
@@ -38,8 +59,10 @@ export default function PagePreview({ pageId }: PagePreviewProps) {
       }
     };
 
-    generateScreenshot();
-  }, [pageId, retryCount]);
+    if (isDev) {
+      generateScreenshot();
+    }
+  }, [pageId, retryCount, isDev]);
 
   if (error) {
     return (
@@ -57,7 +80,7 @@ export default function PagePreview({ pageId }: PagePreviewProps) {
   return (
     <div className="relative w-full h-full overflow-hidden">
       <Image
-        src={screenshotUrl}
+        src={`${screenshotUrl}?t=${Date.now()}`}
         alt={`Preview of ${pageId}`}
         fill
         className="object-contain"

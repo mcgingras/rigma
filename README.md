@@ -38,6 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 Todo
-- diff screenshots
 - dev vs prod mode so it's possible to deploy
 - make it "generalized" so you can fork this
+- rename files through the frontend

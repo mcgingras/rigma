@@ -10,10 +10,6 @@ function ensurePagesDirectory() {
   }
 }
 
-function getPageFilePath(name: string) {
-  return path.join(PAGES_DIR, `${name}/page.tsx`);
-}
-
 export async function GET() {
   ensurePagesDirectory();
   const files = fs

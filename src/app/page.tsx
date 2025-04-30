@@ -51,7 +51,7 @@ export default function ${finalName}() {
 
   return (
     <main className="min-h-screen">
-      <div className="border-b p-4 flex justify-between items-center">
+      <div className="border-b border-slate-700 p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">Rigma</h1>
         <button
           onClick={handleNewPage}

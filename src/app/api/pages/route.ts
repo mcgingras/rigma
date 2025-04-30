@@ -1,8 +1,30 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { isDevMode } from "@/lib/mode";
 
 const PAGES_DIR = path.join(process.cwd(), "src/app/pages");
+
+// Static list of pages for production
+let STATIC_PAGES = [
+  { id: "one", name: "One" },
+  { id: "new_page_copy", name: "New Page Copy" },
+];
+
+// Function to update STATIC_PAGES from filesystem
+function updateStaticPages() {
+  if (!isDevMode()) return;
+
+  const files = fs
+    .readdirSync(PAGES_DIR)
+    .filter((file) => fs.statSync(path.join(PAGES_DIR, file)).isDirectory())
+    .map((dir) => ({
+      id: dir,
+      name: dir,
+    }));
+
+  STATIC_PAGES = files;
+}
 
 function ensurePagesDirectory() {
   if (!fs.existsSync(PAGES_DIR)) {
@@ -11,22 +33,20 @@ function ensurePagesDirectory() {
 }
 
 export async function GET() {
-  ensurePagesDirectory();
-  const files = fs
-    .readdirSync(PAGES_DIR)
-    .filter((file) => fs.statSync(path.join(PAGES_DIR, file)).isDirectory())
-    .map((dir) => {
-      return {
-        id: dir,
-        name: dir,
-        filePath: path.join(PAGES_DIR, dir, "page.tsx"),
-      };
-    });
-
-  return NextResponse.json(files);
+  if (isDevMode()) {
+    updateStaticPages();
+  }
+  return NextResponse.json(STATIC_PAGES);
 }
 
 export async function POST(request: Request) {
+  if (!isDevMode()) {
+    return NextResponse.json(
+      { error: "Not available in production" },
+      { status: 403 }
+    );
+  }
+
   const { name, content } = await request.json();
 
   ensurePagesDirectory();
@@ -39,11 +59,19 @@ export async function POST(request: Request) {
   }
 
   fs.writeFileSync(filePath, content);
+  updateStaticPages();
 
   return NextResponse.json({ success: true });
 }
 
 export async function PUT(request: Request) {
+  if (!isDevMode()) {
+    return NextResponse.json(
+      { error: "Not available in production" },
+      { status: 403 }
+    );
+  }
+
   const { sourcePath, newName } = await request.json();
 
   ensurePagesDirectory();
@@ -57,6 +85,7 @@ export async function PUT(request: Request) {
 
   // Copy the file
   fs.copyFileSync(sourcePath, newFilePath);
+  updateStaticPages();
 
   return NextResponse.json({ success: true });
 }

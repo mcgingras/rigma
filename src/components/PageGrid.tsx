@@ -15,7 +15,7 @@ export default function PageGrid() {
       {pages.map((page) => (
         <div
           key={page.id}
-          className="border rounded-lg p-4 hover:shadow-lg transition-shadow"
+          className="border border-slate-700 rounded-lg p-4 hover:shadow-lg transition-shadow"
         >
           <div className="flex justify-between items-start mb-2">
             <Link

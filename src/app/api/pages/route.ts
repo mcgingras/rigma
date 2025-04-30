@@ -4,12 +4,38 @@ import path from "path";
 import { isDevMode } from "@/lib/mode";
 
 const PAGES_DIR = path.join(process.cwd(), "src/app/pages");
+const STATIC_PAGES_FILE = path.join(process.cwd(), "public/static-pages.json");
 
-// Static list of pages for production
-let STATIC_PAGES = [
-  { id: "one", name: "One" },
-  { id: "new_page_copy", name: "New Page Copy" },
-];
+// Function to read static pages from file
+async function readStaticPages(): Promise<{ id: string; name: string }[]> {
+  if (isDevMode()) {
+    if (fs.existsSync(STATIC_PAGES_FILE)) {
+      return JSON.parse(fs.readFileSync(STATIC_PAGES_FILE, "utf-8"));
+    }
+  } else {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL || ""}/static-pages.json`
+      );
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (error) {
+      console.error("Error fetching static pages:", error);
+    }
+  }
+
+  // Default pages if file doesn't exist or fetch fails
+  return [
+    { id: "one", name: "One" },
+    { id: "new_page_copy", name: "New Page Copy" },
+  ];
+}
+
+// Function to write static pages to file
+function writeStaticPages(pages: { id: string; name: string }[]) {
+  fs.writeFileSync(STATIC_PAGES_FILE, JSON.stringify(pages, null, 2));
+}
 
 // Function to update STATIC_PAGES from filesystem
 function updateStaticPages() {
@@ -23,7 +49,7 @@ function updateStaticPages() {
       name: dir,
     }));
 
-  STATIC_PAGES = files;
+  writeStaticPages(files);
 }
 
 function ensurePagesDirectory() {
@@ -36,7 +62,8 @@ export async function GET() {
   if (isDevMode()) {
     updateStaticPages();
   }
-  return NextResponse.json(STATIC_PAGES);
+  const pages = await readStaticPages();
+  return NextResponse.json(pages);
 }
 
 export async function POST(request: Request) {
@@ -72,19 +99,30 @@ export async function PUT(request: Request) {
     );
   }
 
-  const { sourcePath, newName } = await request.json();
+  const { sourceId, newName } = await request.json();
 
   ensurePagesDirectory();
+  const sourceDir = path.join(PAGES_DIR, sourceId);
+  const sourceFilePath = path.join(sourceDir, "page.tsx");
   const newPageDir = path.join(PAGES_DIR, newName);
   const newFilePath = path.join(newPageDir, "page.tsx");
+
+  // Check if source exists
+  if (!fs.existsSync(sourceFilePath)) {
+    return NextResponse.json(
+      { error: "Source page not found" },
+      { status: 404 }
+    );
+  }
 
   // Create the new directory
   if (!fs.existsSync(newPageDir)) {
     fs.mkdirSync(newPageDir, { recursive: true });
   }
 
-  // Copy the file
-  fs.copyFileSync(sourcePath, newFilePath);
+  // Read source file and write to new file
+  const content = fs.readFileSync(sourceFilePath, "utf-8");
+  fs.writeFileSync(newFilePath, content);
   updateStaticPages();
 
   return NextResponse.json({ success: true });

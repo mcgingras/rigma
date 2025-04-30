@@ -72,16 +72,14 @@ export const usePageStore = create<PageStore>((set) => ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        sourcePath: pageToDuplicate.filePath,
+        sourceId: id,
         newName,
       }),
     });
 
-    set((state) => ({
-      pages: [
-        ...state.pages,
-        { ...pageToDuplicate, id: newName, name: newName },
-      ],
-    }));
+    // Refresh the pages list to get the new page
+    const response = await fetch("/api/pages");
+    const pages = await response.json();
+    set({ pages });
   },
 }));

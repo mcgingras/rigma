@@ -2,10 +2,11 @@ import { usePageStore } from "@/store/usePageStore";
 import { useEffect } from "react";
 import Link from "next/link";
 import PagePreview from "./PagePreview";
+import { isDevMode } from "@/lib/mode";
 
 export default function PageGrid() {
   const { pages, duplicatePage, refreshPages } = usePageStore();
-
+  const isDev = isDevMode();
   useEffect(() => {
     refreshPages();
   }, []);
@@ -24,14 +25,16 @@ export default function PageGrid() {
             >
               {page.name}
             </Link>
-            <div className="space-x-2">
-              <button
-                onClick={() => duplicatePage(page.id)}
-                className="text-sm text-blue-500 hover:text-blue-700"
-              >
-                Copy
-              </button>
-            </div>
+            {isDev && (
+              <div className="space-x-2">
+                <button
+                  onClick={() => duplicatePage(page.id)}
+                  className="text-sm text-blue-500 hover:text-blue-700"
+                >
+                  Copy
+                </button>
+              </div>
+            )}
           </div>
           <div className="aspect-video bg-gray-100 rounded overflow-hidden relative">
             <div className="absolute inset-0">

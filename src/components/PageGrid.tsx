@@ -1,0 +1,52 @@
+import { usePageStore } from "@/store/usePageStore";
+import { useEffect } from "react";
+import Link from "next/link";
+import PagePreview from "./PagePreview";
+
+export default function PageGrid() {
+  const { pages, selectPage, duplicatePage, openInEditor, refreshPages } =
+    usePageStore();
+
+  useEffect(() => {
+    refreshPages();
+  }, []);
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+      {pages.map((page) => (
+        <div
+          key={page.id}
+          className="border rounded-lg p-4 hover:shadow-lg transition-shadow"
+        >
+          <div className="flex justify-between items-start mb-2">
+            <Link
+              href={`/pages/${page.id}`}
+              className="text-lg font-semibold hover:text-blue-500"
+            >
+              {page.name}
+            </Link>
+            <div className="space-x-2">
+              <button
+                onClick={() => openInEditor(page.id)}
+                className="text-sm text-blue-500 hover:text-blue-700"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => duplicatePage(page.id)}
+                className="text-sm text-blue-500 hover:text-blue-700"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+          <div className="aspect-video bg-gray-100 rounded overflow-hidden relative">
+            <div className="absolute inset-0">
+              <PagePreview pageId={page.id} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

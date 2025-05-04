@@ -51,11 +51,11 @@ export default function ${finalName}() {
 
   return (
     <main className="min-h-screen">
-      <div className="border-b border-slate-700 p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Rigma</h1>
+      <div className="border-b border-zinc-800 p-4 flex justify-between items-center bg-zinc-900">
+        <h1 className="text-2xl font-bold">UI prototypes</h1>
         <button
           onClick={handleNewPage}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="px-4 py-2 bg-zinc-800 text-white rounded hover:bg-zinc-700"
         >
           New Page
         </button>

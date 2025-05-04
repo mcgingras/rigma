@@ -16,12 +16,12 @@ export default function PageGrid() {
       {pages.map((page) => (
         <div
           key={page.id}
-          className="border border-slate-700 rounded-lg p-4 hover:shadow-lg transition-shadow"
+          className="border border-zinc-800 rounded-lg p-4 hover:shadow-lg transition-shadow bg-zinc-900"
         >
           <div className="flex justify-between items-start mb-2">
             <Link
               href={`/pages/${page.id}`}
-              className="text-lg font-semibold hover:text-blue-500"
+              className="text-lg font-semibold hover:text-zinc-200"
             >
               {page.name}
             </Link>
@@ -29,7 +29,7 @@ export default function PageGrid() {
               <div className="space-x-2">
                 <button
                   onClick={() => duplicatePage(page.id)}
-                  className="text-sm text-blue-500 hover:text-blue-700"
+                  className="text-sm text-zinc-300 hover:text-zinc-400"
                 >
                   Copy
                 </button>

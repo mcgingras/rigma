@@ -1,6 +1,5 @@
 "use client";
 
-import localFont from "next/font/local";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -52,7 +51,6 @@ const NotificationCard = ({ index }: { index: number }) => {
 
 const HomePage = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const numCards = 5;
 
   return (
     <motion.main

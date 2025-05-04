@@ -39,9 +39,9 @@ const BrandPage = () => {
               <p className="text-white text-2xl font-bold">Focus mode</p>
               <button
                 onClick={() => setIsClicked(false)}
-                className="absolute top-4 left-1/2 -translate-x-1/2 text-white bg-black/20 backdrop-blur-lg rounded-full px-4 py-2 cursor-pointer"
+                className="absolute top-4 left-1/2 -translate-x-1/2 text-white bg-black/20 backdrop-blur-lg rounded-full px-4 py-2 cursor-pointer font-semibold border border-black/5"
               >
-                close
+                Close
               </button>
             </div>
           </motion.div>

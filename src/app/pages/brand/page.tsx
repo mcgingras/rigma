@@ -60,6 +60,13 @@ const BrandPage = () => {
           >
             <motion.div
               layoutId="ambush-a"
+              layout="position"
+              transition={{
+                layout: {
+                  duration: 0.3,
+                  ease: "easeInOut",
+                },
+              }}
               className="flex flex-col items-center justify-center bg-gray-300 rounded-lg p-3"
             >
               <img
@@ -92,6 +99,13 @@ const BrandPage = () => {
             <div className="flex flex-row space-x-2 items-center">
               <motion.div
                 layoutId="ambush-a"
+                layout="position"
+                transition={{
+                  layout: {
+                    duration: 0.3,
+                    ease: "easeInOut",
+                  },
+                }}
                 className="flex flex-col items-center justify-center bg-gray-300 rounded-lg p-2"
               >
                 <img

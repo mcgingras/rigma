@@ -1,11 +1,23 @@
 [
   {
+    "id": "bento",
+    "name": "bento"
+  },
+  {
+    "id": "bento_copy",
+    "name": "bento_copy"
+  },
+  {
     "id": "brand",
     "name": "brand"
   },
   {
     "id": "brand_copy",
     "name": "brand_copy"
+  },
+  {
+    "id": "framer-modals",
+    "name": "framer-modals"
   },
   {
     "id": "home",

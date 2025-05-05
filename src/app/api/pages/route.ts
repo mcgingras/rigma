@@ -27,8 +27,34 @@ async function readStaticPages(): Promise<{ id: string; name: string }[]> {
 
   // Default pages if file doesn't exist or fetch fails
   return [
-    { id: "one", name: "One" },
-    { id: "new_page_copy", name: "New Page Copy" },
+    {
+      id: "bento",
+      name: "bento",
+    },
+    {
+      id: "bento_copy",
+      name: "bento_copy",
+    },
+    {
+      id: "brand",
+      name: "brand",
+    },
+    {
+      id: "brand_copy",
+      name: "brand_copy",
+    },
+    {
+      id: "framer-modals",
+      name: "framer-modals",
+    },
+    {
+      id: "home",
+      name: "home",
+    },
+    {
+      id: "home_copy",
+      name: "home_copy",
+    },
   ];
 }
 

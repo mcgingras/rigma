@@ -55,6 +55,10 @@ async function readStaticPages(): Promise<{ id: string; name: string }[]> {
       id: "home_copy",
       name: "home_copy",
     },
+    {
+      id: "warp",
+      name: "warp",
+    },
   ];
 }
 

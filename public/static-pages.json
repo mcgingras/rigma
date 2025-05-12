@@ -16,6 +16,14 @@
     "name": "brand_copy"
   },
   {
+    "id": "cards",
+    "name": "cards"
+  },
+  {
+    "id": "chart",
+    "name": "chart"
+  },
+  {
     "id": "framer-modals",
     "name": "framer-modals"
   },
@@ -26,6 +34,14 @@
   {
     "id": "home_copy",
     "name": "home_copy"
+  },
+  {
+    "id": "new_page",
+    "name": "new_page"
+  },
+  {
+    "id": "stack",
+    "name": "stack"
   },
   {
     "id": "warp",

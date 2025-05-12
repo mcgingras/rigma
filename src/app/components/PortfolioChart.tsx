@@ -2,14 +2,37 @@ import { motion } from "motion/react";
 import React from "react";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
 
-// Generate more data points for a smoother line
-const data = Array.from({ length: 40 }, (_, i) => {
-  // Simulate a generally upward trend with some noise
-  const base = 10000 + i * 100 + Math.sin(i / 2) * 300 + Math.random() * 200;
-  return { idx: i, value: base };
-});
+interface PortfolioChartProps {
+  dataPattern?: "normal" | "up" | "down" | "sharp";
+}
 
-export default function PortfolioChart() {
+export default function PortfolioChart({
+  dataPattern = "normal",
+}: PortfolioChartProps) {
+  // Generate data based on the dataPattern prop
+  const data = Array.from({ length: 40 }, (_, i) => {
+    let base;
+    if (dataPattern === "up") {
+      // Strong upward trend
+      base = 10000 + i * 200 + Math.sin(i / 2) * 300 + Math.random() * 200;
+    } else if (dataPattern === "down") {
+      // Downward trend
+      base = 12000 - i * 150 + Math.sin(i / 2) * 300 + Math.random() * 200;
+    } else if (dataPattern === "sharp") {
+      // Sharp jump up in the middle
+      if (i < 20) {
+        base = 10000 + i * 100 + Math.sin(i / 2) * 300 + Math.random() * 200;
+      } else {
+        base =
+          20000 + (i - 20) * 300 + Math.sin(i / 2) * 300 + Math.random() * 200;
+      }
+    } else {
+      // Normal pattern
+      base = 10000 + i * 100 + Math.sin(i / 2) * 300 + Math.random() * 200;
+    }
+    return { idx: i, value: base };
+  });
+
   return (
     <motion.div
       layoutId="portfolio-chart-container"

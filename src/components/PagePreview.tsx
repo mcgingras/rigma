@@ -8,64 +8,50 @@ interface PagePreviewProps {
 }
 
 export default function PagePreview({ pageId }: PagePreviewProps) {
-  const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
-    const generateScreenshot = async () => {
+    const fetchScreenshot = async () => {
       try {
         const response = await fetch(`/api/pages/${pageId}/screenshot`);
         if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.error || "Failed to generate screenshot");
+          throw new Error("Failed to fetch screenshot");
         }
         const data = await response.json();
-        setScreenshotUrl(data.url);
+        setPreviewUrl(data.url);
         setError(null);
-      } catch (err) {
-        console.error("Error generating screenshot:", err);
-        setError(
-          err instanceof Error ? err.message : "Failed to generate preview"
-        );
-
-        // Retry up to 3 times with a delay
-        if (retryCount < 3) {
-          setTimeout(() => {
-            setRetryCount((prev) => prev + 1);
-          }, 1000);
-        }
+      } catch (error) {
+        console.error("Error fetching screenshot:", error);
+        setError("Failed to load preview");
       }
     };
 
-    generateScreenshot();
-  }, [pageId, retryCount]);
+    fetchScreenshot();
+  }, [pageId]);
 
   if (error) {
     return (
-      <div className="text-red-500 p-4">
+      <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-400">
         {error}
-        {retryCount < 3 && <div className="text-sm mt-2">Retrying...</div>}
       </div>
     );
   }
 
-  if (!screenshotUrl) {
-    return <div className="p-4">Generating preview...</div>;
+  if (!previewUrl) {
+    return (
+      <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-400">
+        Loading preview...
+      </div>
+    );
   }
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
-      <Image
-        src={screenshotUrl}
-        alt={`Preview of ${pageId}`}
-        fill
-        className="object-contain"
-        onError={() => {
-          console.error("Error loading screenshot:", screenshotUrl);
-          setError("Failed to load preview image");
-        }}
-      />
-    </div>
+    <Image
+      src={previewUrl}
+      alt={`Preview of ${pageId}`}
+      fill
+      className="object-cover"
+    />
   );
 }

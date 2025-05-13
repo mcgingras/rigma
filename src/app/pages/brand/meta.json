@@ -1,0 +1,17 @@
+{
+  "id": "brand",
+  "name": "brand",
+  "description": "brand page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Initial Version",
+      "description": "Migrated from original page",
+      "createdAt": "2025-05-13T20:56:23.225Z",
+      "updatedAt": "2025-05-13T20:56:23.225Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-05-13T20:56:23.225Z",
+  "updatedAt": "2025-05-13T20:56:23.225Z"
+}

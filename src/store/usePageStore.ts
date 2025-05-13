@@ -2,11 +2,20 @@ import { create } from "zustand";
 import { Page, PageState } from "@/types/page";
 
 interface PageStore extends PageState {
-  addPage: (page: Omit<Page, "id" | "createdAt" | "updatedAt">) => void;
+  addPage: (
+    page: Omit<
+      Page,
+      "id" | "createdAt" | "updatedAt" | "versions" | "currentVersionId"
+    >
+  ) => void;
   updatePage: (id: string, updates: Partial<Page>) => void;
   deletePage: (id: string) => void;
   selectPage: (id: string) => void;
-  duplicatePage: (id: string) => Promise<void>;
+  duplicatePage: (
+    id: string,
+    versionName: string,
+    description: string
+  ) => Promise<void>;
   refreshPages: () => Promise<void>;
 }
 
@@ -22,6 +31,16 @@ export const usePageStore = create<PageStore>((set) => ({
         {
           ...page,
           id: crypto.randomUUID(),
+          versions: [
+            {
+              id: "v1",
+              name: `${page.name} - Initial Version`,
+              description: "Initial version",
+              createdAt: new Date(),
+              updatedAt: new Date(),
+            },
+          ],
+          currentVersionId: "v1",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -49,23 +68,7 @@ export const usePageStore = create<PageStore>((set) => ({
     set({ pages });
   },
 
-  duplicatePage: async (id) => {
-    const pageToDuplicate = (
-      await fetch("/api/pages").then((res) => res.json())
-    ).find((p: Page) => p.id === id);
-
-    if (!pageToDuplicate) return;
-
-    let newName = `${pageToDuplicate.name}_copy`;
-    let counter = 1;
-
-    // Check if name exists
-    const existingPages = await fetch("/api/pages").then((res) => res.json());
-    while (existingPages.some((p: Page) => p.name === newName)) {
-      newName = `${pageToDuplicate.name}_copy${counter}`;
-      counter++;
-    }
-
+  duplicatePage: async (id, versionName, description) => {
     await fetch("/api/pages", {
       method: "PUT",
       headers: {
@@ -73,11 +76,12 @@ export const usePageStore = create<PageStore>((set) => ({
       },
       body: JSON.stringify({
         sourceId: id,
-        newName,
+        versionName,
+        description,
       }),
     });
 
-    // Refresh the pages list to get the new page
+    // Refresh the pages list to get the new version
     const response = await fetch("/api/pages");
     const pages = await response.json();
     set({ pages });

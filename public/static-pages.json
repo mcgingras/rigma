@@ -4,8 +4,16 @@
     "name": "bento"
   },
   {
-    "id": "bento_copy",
-    "name": "bento_copy"
+    "id": "blur",
+    "name": "blur"
+  },
+  {
+    "id": "blur-app",
+    "name": "blur-app"
+  },
+  {
+    "id": "blur-full",
+    "name": "blur-full"
   },
   {
     "id": "brand",

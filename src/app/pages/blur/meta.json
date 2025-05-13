@@ -1,0 +1,17 @@
+{
+  "id": "blur",
+  "name": "blur",
+  "description": "blur page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Initial Version",
+      "description": "Migrated from original page",
+      "createdAt": "2025-05-13T20:56:23.224Z",
+      "updatedAt": "2025-05-13T20:56:23.224Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-05-13T20:56:23.224Z",
+  "updatedAt": "2025-05-13T20:56:23.224Z"
+}

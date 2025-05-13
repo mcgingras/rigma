@@ -1,22 +1,41 @@
 import { NextResponse } from "next/server";
-import { takeScreenshot } from "@/lib/screenshot";
+import { isDevMode } from "@/lib/mode";
+import { getPage } from "../../../utils/pageUtils.server";
+import { generateScreenshot, ensureScreenshot } from "@/lib/screenshot";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-export async function GET(request: Request) {
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+  const pageId = id;
+
+  if (!isDevMode()) {
+    return NextResponse.json(
+      { error: "Not available in production" },
+      { status: 403 }
+    );
+  }
+
+  const page = await getPage(pageId);
+
+  if (!page) {
+    return NextResponse.json({ error: "Page not found" }, { status: 404 });
+  }
+
+  const searchParams = new URL(request.url).searchParams;
+  const versionId = searchParams.get("version") || page.currentVersionId;
+  const forceGenerate = searchParams.get("force") === "true";
+
   try {
-    // Extract the pageId from the URL - it's the second to last segment
-    const url = new URL(request.url);
-    const segments = url.pathname.split("/");
-    const pageId = segments[segments.length - 2]; // Get the segment before 'screenshot'
+    const screenshotUrl = forceGenerate
+      ? await generateScreenshot(pageId, versionId)
+      : await ensureScreenshot(pageId, versionId);
 
-    if (!pageId) {
-      return NextResponse.json({ error: "Page ID not found" }, { status: 400 });
-    }
-
-    const screenshotPath = await takeScreenshot(pageId);
-    return NextResponse.json({ url: screenshotPath });
+    return NextResponse.json({ url: screenshotUrl });
   } catch (error) {
     console.error("Error generating screenshot:", error);
     return NextResponse.json(

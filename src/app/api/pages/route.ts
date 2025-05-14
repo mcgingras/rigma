@@ -29,13 +29,12 @@ async function getStaticPages() {
 export async function GET() {
   if (!isDevMode()) {
     const pages = await getStaticPages();
-    console.log("Static pages: ", pages);
     return NextResponse.json(pages);
   }
 
   // In dev mode, migrate and get live pages
   migrateExistingPages();
-  const pages = getAllPages();
+  const pages = await getAllPages();
   return NextResponse.json(pages);
 }
 

@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import PageGrid from "@/components/PageGrid";
 import { usePageStore } from "@/store/usePageStore";
 import { Page } from "@/types/page";
+import { isDevMode } from "@/lib/mode";
 
 export default function Home() {
   const { refreshPages } = usePageStore();
-
+  const isDev = isDevMode();
   useEffect(() => {
     refreshPages();
   }, []);
@@ -53,12 +54,14 @@ export default function ${finalName}() {
     <main className="min-h-screen">
       <div className="border-b border-zinc-800 p-4 flex justify-between items-center bg-zinc-900">
         <h1 className="text-2xl font-bold">UI prototypes</h1>
-        <button
-          onClick={handleNewPage}
-          className="px-4 py-2 bg-zinc-800 text-white rounded hover:bg-zinc-700"
-        >
-          New Page
-        </button>
+        {isDev && (
+          <button
+            onClick={handleNewPage}
+            className="text-base font-bold text-zinc-300 hover:text-zinc-400 bg-zinc-700 px-4 py-2 rounded-lg cursor-pointer"
+          >
+            New Page
+          </button>
+        )}
       </div>
 
       <div className="h-[calc(100vh-73px)] overflow-auto">

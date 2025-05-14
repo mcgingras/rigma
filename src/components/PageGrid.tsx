@@ -72,7 +72,7 @@ export default function PageGrid() {
             <div className="flex justify-between items-start">
               <Link
                 href={`/pages/${page.id}/versions/${page.currentVersionId}`}
-                className="text-lg font-semibold hover:text-zinc-200"
+                className="text-lg font-semibold hover:text-zinc-200 cursor-pointer hover:underline"
               >
                 {page.name}
               </Link>
@@ -81,7 +81,7 @@ export default function PageGrid() {
                   onClick={() =>
                     setSelectedPage(selectedPage === page.id ? null : page.id)
                   }
-                  className="text-sm text-zinc-300 hover:text-zinc-400"
+                  className="text-xs font-bold text-zinc-300 hover:text-zinc-400 bg-zinc-700 px-2 py-1 rounded-md cursor-pointer"
                 >
                   Copy
                 </button>

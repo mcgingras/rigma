@@ -1,7 +1,7 @@
 {
   "id": "blur",
   "name": "blur",
-  "description": "blur page",
+  "description": "Progressive blur on a card. We could try this with more images and more cards, the lower half is blurred.",
   "versions": [
     {
       "id": "v1",
@@ -9,9 +9,16 @@
       "description": "Migrated from original page",
       "createdAt": "2025-05-13T20:56:23.224Z",
       "updatedAt": "2025-05-13T20:56:23.224Z"
+    },
+    {
+      "id": "v2",
+      "name": "blur - Copy",
+      "description": "Just testing versioning",
+      "createdAt": "2025-05-14T12:06:59.999Z",
+      "updatedAt": "2025-05-14T12:11:56.710Z"
     }
   ],
-  "currentVersionId": "v1",
+  "currentVersionId": "v2",
   "createdAt": "2025-05-13T20:56:23.224Z",
-  "updatedAt": "2025-05-13T20:56:23.224Z"
+  "updatedAt": "2025-05-14T12:11:56.710Z"
 }

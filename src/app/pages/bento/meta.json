@@ -1,7 +1,7 @@
 {
   "id": "bento",
   "name": "bento",
-  "description": "Bento box style layout.",
+  "description": "Bento",
   "versions": [
     {
       "id": "v1",
@@ -13,5 +13,5 @@
   ],
   "currentVersionId": "v1",
   "createdAt": "2025-05-13T20:56:23.224Z",
-  "updatedAt": "2025-05-13T20:56:23.224Z"
+  "updatedAt": "2025-05-14T12:16:30.537Z"
 }

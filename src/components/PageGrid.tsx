@@ -10,24 +10,56 @@ export default function PageGrid() {
   const isDev = isDevMode();
   const [selectedPage, setSelectedPage] = useState<string | null>(null);
   const [description, setDescription] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    refreshPages();
-  }, []);
+    refreshPages().catch((err) => {
+      console.error("Error refreshing pages:", err);
+      setError("Failed to load pages");
+    });
+  }, [refreshPages]);
 
   const handleCopy = async (page: Page) => {
-    const versionName = `${page.name} - Copy`;
-    await duplicatePage(
-      page.id,
-      versionName,
-      description || "Copy of current version"
-    );
-    setDescription("");
-    setSelectedPage(null);
-    refreshPages();
+    try {
+      const versionName = `${page.name} - Copy`;
+      await duplicatePage(
+        page.id,
+        versionName,
+        description || "Copy of current version"
+      );
+      setDescription("");
+      setSelectedPage(null);
+      await refreshPages();
+    } catch (error) {
+      console.error("Error copying page:", error);
+      setError("Failed to copy page");
+    }
   };
 
-  console.log(pages);
+  if (error) {
+    return (
+      <div className="p-4 text-red-500">
+        {error}
+        <button
+          onClick={() => {
+            setError(null);
+            refreshPages();
+          }}
+          className="ml-2 underline"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
+
+  if (!Array.isArray(pages) || pages.length === 0) {
+    return (
+      <div className="p-4 text-zinc-400">
+        No pages found. Create a new page to get started.
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
@@ -59,8 +91,8 @@ export default function PageGrid() {
             <p className="text-sm text-zinc-400">{page.description}</p>
 
             <div className="text-xs text-zinc-500">
-              {page.versions.length} version
-              {page.versions.length !== 1 ? "s" : ""}
+              {page.versions?.length || 0} version
+              {(page.versions?.length || 0) !== 1 ? "s" : ""}
             </div>
 
             {selectedPage === page.id && (

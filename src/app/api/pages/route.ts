@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { isDevMode } from "@/lib/mode";
+import fs from "fs";
+import path from "path";
 import {
   getAllPages,
   createPage,
@@ -7,19 +9,32 @@ import {
   getPage,
   getPageVersionContent,
   migrateExistingPages,
-} from "@/lib/pageUtils";
+} from "../utils/pageUtils.server";
+
+async function getStaticPages() {
+  try {
+    const staticPagesPath = path.join(
+      process.cwd(),
+      "public",
+      "static-pages.json"
+    );
+    const data = await fs.promises.readFile(staticPagesPath, "utf-8");
+    return JSON.parse(data);
+  } catch (error) {
+    console.error("Error reading static pages:", error);
+    return [];
+  }
+}
 
 export async function GET() {
   if (!isDevMode()) {
-    return NextResponse.json(
-      { error: "Not available in production" },
-      { status: 403 }
-    );
+    const pages = await getStaticPages();
+    console.log("Static pages: ", pages);
+    return NextResponse.json(pages);
   }
 
-  // Migrate existing pages to new format if needed
+  // In dev mode, migrate and get live pages
   migrateExistingPages();
-
   const pages = getAllPages();
   return NextResponse.json(pages);
 }
@@ -48,7 +63,7 @@ export async function PUT(request: Request) {
   const { sourceId, versionName, description } = await request.json();
 
   // Get the source page and its current version content
-  const sourcePage = getPage(sourceId);
+  const sourcePage = await Promise.resolve(getPage(sourceId));
   if (!sourcePage) {
     return NextResponse.json(
       { error: "Source page not found" },
@@ -56,7 +71,9 @@ export async function PUT(request: Request) {
     );
   }
 
-  const content = getPageVersionContent(sourceId, sourcePage.currentVersionId);
+  const content = await Promise.resolve(
+    getPageVersionContent(sourceId, sourcePage.currentVersionId)
+  );
   if (!content) {
     return NextResponse.json(
       { error: "Source content not found" },

@@ -1,58 +1,213 @@
 [
   {
     "id": "bento",
-    "name": "bento"
+    "name": "bento",
+    "description": "Bento box style layout.",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.224Z",
+        "updatedAt": "2025-05-13T20:56:23.224Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.224Z",
+    "updatedAt": "2025-05-13T20:56:23.224Z"
   },
   {
     "id": "blur",
-    "name": "blur"
+    "name": "blur",
+    "description": "blur page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.224Z",
+        "updatedAt": "2025-05-13T20:56:23.224Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.224Z",
+    "updatedAt": "2025-05-13T20:56:23.224Z"
   },
   {
     "id": "blur-app",
-    "name": "blur-app"
+    "name": "blur-app",
+    "description": "blur-app page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.225Z",
+        "updatedAt": "2025-05-13T20:56:23.225Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.225Z",
+    "updatedAt": "2025-05-13T20:56:23.225Z"
   },
   {
     "id": "blur-full",
-    "name": "blur-full"
+    "name": "blur-full",
+    "description": "blur-full page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.225Z",
+        "updatedAt": "2025-05-13T20:56:23.225Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.225Z",
+    "updatedAt": "2025-05-13T20:56:23.225Z"
   },
   {
     "id": "brand",
-    "name": "brand"
-  },
-  {
-    "id": "brand_copy",
-    "name": "brand_copy"
+    "name": "brand",
+    "description": "brand page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.225Z",
+        "updatedAt": "2025-05-13T20:56:23.225Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.225Z",
+    "updatedAt": "2025-05-13T20:56:23.225Z"
   },
   {
     "id": "cards",
-    "name": "cards"
+    "name": "cards",
+    "description": "cards page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.226Z",
+        "updatedAt": "2025-05-13T20:56:23.226Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.226Z",
+    "updatedAt": "2025-05-13T20:56:23.226Z"
   },
   {
     "id": "chart",
-    "name": "chart"
+    "name": "chart",
+    "description": "chart page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.226Z",
+        "updatedAt": "2025-05-13T20:56:23.226Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.226Z",
+    "updatedAt": "2025-05-13T20:56:23.226Z"
   },
   {
     "id": "framer-modals",
-    "name": "framer-modals"
+    "name": "framer-modals",
+    "description": "framer-modals page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.226Z",
+        "updatedAt": "2025-05-13T20:56:23.226Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.226Z",
+    "updatedAt": "2025-05-13T20:56:23.226Z"
   },
   {
     "id": "home",
-    "name": "home"
-  },
-  {
-    "id": "home_copy",
-    "name": "home_copy"
+    "name": "home",
+    "description": "home page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.227Z",
+        "updatedAt": "2025-05-13T20:56:23.227Z"
+      },
+      {
+        "id": "v2",
+        "name": "Updated Version",
+        "description": "Updated version",
+        "createdAt": "2025-05-13T20:56:23.227Z",
+        "updatedAt": "2025-05-13T20:56:23.227Z"
+      }
+    ],
+    "currentVersionId": "v2",
+    "createdAt": "2025-05-13T20:56:23.227Z",
+    "updatedAt": "2025-05-13T20:56:23.227Z"
   },
   {
     "id": "new_page",
-    "name": "new_page"
+    "name": "new page",
+    "description": "new page page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.227Z",
+        "updatedAt": "2025-05-13T20:56:23.227Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.227Z",
+    "updatedAt": "2025-05-13T20:56:23.227Z"
   },
   {
     "id": "stack",
-    "name": "stack"
+    "name": "stack",
+    "description": "stack page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.227Z",
+        "updatedAt": "2025-05-13T20:56:23.227Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.227Z",
+    "updatedAt": "2025-05-13T20:56:23.227Z"
   },
   {
     "id": "warp",
-    "name": "warp"
+    "name": "warp",
+    "description": "warp page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Migrated from original page",
+        "createdAt": "2025-05-13T20:56:23.228Z",
+        "updatedAt": "2025-05-13T20:56:23.228Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-05-13T20:56:23.228Z",
+    "updatedAt": "2025-05-13T20:56:23.228Z"
   }
 ]

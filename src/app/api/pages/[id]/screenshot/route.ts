@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { isDevMode } from "@/lib/mode";
 import { getPage } from "../../../utils/pageUtils.server";
 import { generateScreenshot, ensureScreenshot } from "@/lib/screenshot";
+import { existsSync } from "fs";
+import { join } from "path";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -13,13 +15,6 @@ export async function GET(
   const { id } = await params;
   const pageId = id;
 
-  if (!isDevMode()) {
-    return NextResponse.json(
-      { error: "Not available in production" },
-      { status: 403 }
-    );
-  }
-
   const page = await getPage(pageId);
 
   if (!page) {
@@ -30,6 +25,27 @@ export async function GET(
   const versionId = searchParams.get("version") || page.currentVersionId;
   const forceGenerate = searchParams.get("force") === "true";
 
+  // In production, we only check for existing screenshots
+  if (!isDevMode()) {
+    const screenshotPath = join(
+      process.cwd(),
+      "public/screenshots",
+      `${pageId}_${versionId}.png`
+    );
+
+    if (!existsSync(screenshotPath)) {
+      return NextResponse.json(
+        { error: "Screenshot not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      url: `/screenshots/${pageId}_${versionId}.png`,
+    });
+  }
+
+  // In development, we can generate new screenshots
   try {
     const screenshotUrl = forceGenerate
       ? await generateScreenshot(pageId, versionId)

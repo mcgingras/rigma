@@ -1,3 +1,5 @@
+"use client";
+
 import { usePageStore } from "@/store/usePageStore";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -11,6 +13,7 @@ export default function PageGrid() {
   const [selectedPage, setSelectedPage] = useState<string | null>(null);
   const [description, setDescription] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     refreshPages().catch((err) => {
@@ -33,6 +36,31 @@ export default function PageGrid() {
     } catch (error) {
       console.error("Error copying page:", error);
       setError("Failed to copy page");
+    }
+  };
+
+  const handleDelete = async (page: Page) => {
+    if (
+      !confirm(
+        `Are you sure you want to delete "${page.name}"? This action cannot be undone.`
+      )
+    ) {
+      return;
+    }
+
+    setIsDeleting(true);
+    try {
+      const response = await fetch(`/api/pages/${page.id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error("Failed to delete page");
+      await refreshPages();
+    } catch (error) {
+      console.error("Error deleting page:", error);
+      setError("Failed to delete page");
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -72,19 +100,28 @@ export default function PageGrid() {
             <div className="flex justify-between items-start">
               <Link
                 href={`/pages/${page.id}/versions/${page.currentVersionId}`}
-                className="text-lg font-semibold hover:text-zinc-200 cursor-pointer hover:underline"
+                className="text-lg font-semibold hover:text-zinc-200"
               >
                 {page.name}
               </Link>
               {isDev && (
-                <button
-                  onClick={() =>
-                    setSelectedPage(selectedPage === page.id ? null : page.id)
-                  }
-                  className="text-xs font-bold text-zinc-300 hover:text-zinc-400 bg-zinc-700 px-2 py-1 rounded-md cursor-pointer"
-                >
-                  Copy
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() =>
+                      setSelectedPage(selectedPage === page.id ? null : page.id)
+                    }
+                    className="text-sm text-zinc-300 hover:text-zinc-400"
+                  >
+                    Copy
+                  </button>
+                  <button
+                    onClick={() => handleDelete(page)}
+                    disabled={isDeleting}
+                    className="text-sm text-red-500 hover:text-red-400"
+                  >
+                    Delete
+                  </button>
+                </div>
               )}
             </div>
 

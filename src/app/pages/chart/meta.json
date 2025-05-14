@@ -1,17 +1,24 @@
 {
   "id": "chart",
-  "name": "chart",
-  "description": "chart page",
+  "name": "Ambient chart",
+  "description": "Demos dragging over a section of the portfolio to get more insight into an event. Supports \"ambient\" AI always available on the entire product surface area.",
   "versions": [
     {
       "id": "v1",
       "name": "Initial Version",
-      "description": "Migrated from original page",
+      "description": "Adds default explanation",
       "createdAt": "2025-05-13T20:56:23.226Z",
-      "updatedAt": "2025-05-13T20:56:23.226Z"
+      "updatedAt": "2025-05-14T13:11:18.836Z"
+    },
+    {
+      "id": "v2",
+      "name": "chart - Copy",
+      "description": "Different version of post-hover state. Asks users to converse with agent.",
+      "createdAt": "2025-05-14T13:10:31.330Z",
+      "updatedAt": "2025-05-14T13:11:08.157Z"
     }
   ],
-  "currentVersionId": "v1",
+  "currentVersionId": "v2",
   "createdAt": "2025-05-13T20:56:23.226Z",
-  "updatedAt": "2025-05-13T20:56:23.226Z"
+  "updatedAt": "2025-05-14T13:12:07.828Z"
 }

@@ -22,13 +22,6 @@
     "description": "Progressive blur on a card. We could try this with more images and more cards, the lower half is blurred.",
     "versions": [
       {
-        "id": "v1",
-        "name": "Initial Version",
-        "description": "Migrated from original page",
-        "createdAt": "2025-05-13T20:56:23.224Z",
-        "updatedAt": "2025-05-13T20:56:23.224Z"
-      },
-      {
         "id": "v2",
         "name": "blur - Copy",
         "description": "Just testing versioning",
@@ -38,7 +31,7 @@
     ],
     "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.224Z",
-    "updatedAt": "2025-05-14T12:11:56.710Z"
+    "updatedAt": "2025-05-14T12:35:09.422Z"
   },
   {
     "id": "blur-app",
@@ -85,11 +78,18 @@
         "description": "Migrated from original page",
         "createdAt": "2025-05-13T20:56:23.225Z",
         "updatedAt": "2025-05-13T20:56:23.225Z"
+      },
+      {
+        "id": "v2",
+        "name": "brand - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-05-14T13:14:29.012Z",
+        "updatedAt": "2025-05-14T13:14:29.012Z"
       }
     ],
-    "currentVersionId": "v1",
+    "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.225Z",
-    "updatedAt": "2025-05-13T20:56:23.225Z"
+    "updatedAt": "2025-05-14T13:14:29.012Z"
   },
   {
     "id": "cards",
@@ -110,20 +110,27 @@
   },
   {
     "id": "chart",
-    "name": "chart",
-    "description": "chart page",
+    "name": "Ambient chart",
+    "description": "Demos dragging over a section of the portfolio to get more insight into an event. Supports \"ambient\" AI always available on the entire product surface area.",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "Adds default explanation",
         "createdAt": "2025-05-13T20:56:23.226Z",
-        "updatedAt": "2025-05-13T20:56:23.226Z"
+        "updatedAt": "2025-05-14T13:11:18.836Z"
+      },
+      {
+        "id": "v2",
+        "name": "chart - Copy",
+        "description": "Different version of post-hover state. Asks users to converse with agent.",
+        "createdAt": "2025-05-14T13:10:31.330Z",
+        "updatedAt": "2025-05-14T13:11:08.157Z"
       }
     ],
-    "currentVersionId": "v1",
+    "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.226Z",
-    "updatedAt": "2025-05-13T20:56:23.226Z"
+    "updatedAt": "2025-05-14T13:12:07.828Z"
   },
   {
     "id": "framer-modals",
@@ -167,26 +174,9 @@
     "updatedAt": "2025-05-13T20:56:23.227Z"
   },
   {
-    "id": "new_page",
-    "name": "new page",
-    "description": "new page page",
-    "versions": [
-      {
-        "id": "v1",
-        "name": "Initial Version",
-        "description": "Migrated from original page",
-        "createdAt": "2025-05-13T20:56:23.227Z",
-        "updatedAt": "2025-05-13T20:56:23.227Z"
-      }
-    ],
-    "currentVersionId": "v1",
-    "createdAt": "2025-05-13T20:56:23.227Z",
-    "updatedAt": "2025-05-13T20:56:23.227Z"
-  },
-  {
     "id": "stack",
     "name": "stack",
-    "description": "stack page",
+    "description": "Animated stack of notification items",
     "versions": [
       {
         "id": "v1",
@@ -198,23 +188,30 @@
     ],
     "currentVersionId": "v1",
     "createdAt": "2025-05-13T20:56:23.227Z",
-    "updatedAt": "2025-05-13T20:56:23.227Z"
+    "updatedAt": "2025-05-14T12:42:58.435Z"
   },
   {
     "id": "warp",
     "name": "warp",
-    "description": "warp page",
+    "description": "Demo's a iOS / siri like full screen warping animation to bring in focus mode overlay.",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "test of warp animation.",
         "createdAt": "2025-05-13T20:56:23.228Z",
-        "updatedAt": "2025-05-13T20:56:23.228Z"
+        "updatedAt": "2025-05-14T12:41:58.487Z"
+      },
+      {
+        "id": "v2",
+        "name": "warp - Copy",
+        "description": "Replaces background with mock app background.",
+        "createdAt": "2025-05-14T12:37:47.139Z",
+        "updatedAt": "2025-05-14T12:38:00.420Z"
       }
     ],
-    "currentVersionId": "v1",
+    "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.228Z",
-    "updatedAt": "2025-05-13T20:56:23.228Z"
+    "updatedAt": "2025-05-14T12:42:19.321Z"
   }
 ]

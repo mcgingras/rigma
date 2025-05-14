@@ -9,9 +9,16 @@
       "description": "Migrated from original page",
       "createdAt": "2025-05-13T20:56:23.225Z",
       "updatedAt": "2025-05-13T20:56:23.225Z"
+    },
+    {
+      "id": "v2",
+      "name": "brand - Copy",
+      "description": "Copy of current version",
+      "createdAt": "2025-05-14T13:14:29.012Z",
+      "updatedAt": "2025-05-14T13:14:29.012Z"
     }
   ],
-  "currentVersionId": "v1",
+  "currentVersionId": "v2",
   "createdAt": "2025-05-13T20:56:23.225Z",
-  "updatedAt": "2025-05-13T20:56:23.225Z"
+  "updatedAt": "2025-05-14T13:14:29.012Z"
 }

@@ -5,15 +5,20 @@ import { usePathname } from "next/navigation";
 import { Page, PageVersion } from "@/types/page";
 import Link from "next/link";
 import { usePageStore } from "@/store/usePageStore";
+import { isDevMode } from "@/lib/mode";
 
 const PageDetailsData = () => {
+  const isDev = isDevMode();
   const [isOpen, setIsOpen] = useState(true);
   const [pageData, setPageData] = useState<Page>();
   const [isEditing, setIsEditing] = useState(false);
   const [editedDescription, setEditedDescription] = useState("");
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [editedTitle, setEditedTitle] = useState("");
   const [editingVersionId, setEditingVersionId] = useState<string | null>(null);
   const [editedVersionDescription, setEditedVersionDescription] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const { duplicatePage, refreshPages } = usePageStore();
   const pathname = usePathname();
   const pageId = pathname?.split("/")[2]; // pages/id
@@ -27,6 +32,33 @@ const PageDetailsData = () => {
     const data = await response.json();
     setPageData(data);
     setEditedDescription(data.description || "");
+    setEditedTitle(data.name || "");
+  };
+
+  const handleSaveTitle = async () => {
+    if (!pageData || !editedTitle.trim()) return;
+    setIsSaving(true);
+    try {
+      const response = await fetch(`/api/pages/${pageId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: editedTitle,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to update title");
+
+      const updatedPage = await response.json();
+      setPageData(updatedPage);
+      setIsEditingTitle(false);
+    } catch (error) {
+      console.error("Failed to save title:", error);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handleSaveDescription = async () => {
@@ -95,13 +127,90 @@ const PageDetailsData = () => {
     }
   };
 
+  const handleDeleteVersion = async (version: PageVersion) => {
+    if (!pageData || pageData.versions.length <= 1) return; // Don't allow deleting the last version
+
+    if (
+      !confirm(
+        `Are you sure you want to delete version "${version.id} - ${version.name}"?`
+      )
+    ) {
+      return;
+    }
+
+    setIsDeleting(true);
+    try {
+      const response = await fetch(
+        `/api/pages/${pageId}/versions/${version.id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) throw new Error("Failed to delete version");
+
+      const updatedPage = await response.json();
+      setPageData(updatedPage);
+    } catch (error) {
+      console.error("Failed to delete version:", error);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
   return (
-    <div className="fixed right-4 top-4 bg-black/5 backdrop-blur-sm text-black border border-black/10 rounded p-2 z-[9999] w-[300px]">
+    <div className="fixed right-4 top-4 bg-white backdrop-blur-sm text-black border border-black/10 rounded p-2 z-[9999] w-[300px]">
       <div className="flex items-center justify-between">
         <Link className="text-sm w-[50px]" href="/">
           Home
         </Link>
-        <h2 className="text-base font-bold">{pageData?.name}</h2>
+        {isEditingTitle && isDev ? (
+          <div className="flex-1 mx-2">
+            <input
+              type="text"
+              value={editedTitle}
+              onChange={(e) => setEditedTitle(e.target.value)}
+              className="w-full text-base font-bold p-1 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSaveTitle();
+                } else if (e.key === "Escape") {
+                  setIsEditingTitle(false);
+                  setEditedTitle(pageData?.name || "");
+                }
+              }}
+              autoFocus
+            />
+            <div className="flex justify-end gap-2 mt-1">
+              <button
+                onClick={() => {
+                  setIsEditingTitle(false);
+                  setEditedTitle(pageData?.name || "");
+                }}
+                className="text-xs text-gray-500 hover:text-gray-700"
+                disabled={isSaving}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveTitle}
+                className="text-xs text-white bg-gray-500 hover:bg-gray-600 px-2 py-1 rounded"
+                disabled={isSaving}
+              >
+                {isSaving ? "Saving..." : "Save"}
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div
+            className={`text-base font-bold ${
+              isDev ? "cursor-pointer hover:bg-black/5 px-2 py-1 rounded" : ""
+            }`}
+            onClick={() => isDev && setIsEditingTitle(true)}
+          >
+            {pageData?.name}
+          </div>
+        )}
         <button onClick={() => setIsOpen(!isOpen)} className="text-sm w-[50px]">
           {isOpen ? "Close" : "Open"}
         </button>
@@ -111,7 +220,7 @@ const PageDetailsData = () => {
           <div className="mt-2 border-t border-gray-200 pt-2">
             <div className="flex items-center justify-between">
               <h3 className="text-base font-bold">Description</h3>
-              {!isEditing && (
+              {!isEditing && isDev && (
                 <button
                   onClick={() => setIsEditing(true)}
                   className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer hover:underline"
@@ -150,8 +259,14 @@ const PageDetailsData = () => {
               </div>
             ) : (
               <p
-                className="text-xs cursor-pointer hover:bg-black/5 p-1 rounded text-zinc-700"
-                onClick={() => setIsEditing(true)}
+                className={`text-xs cursor-pointer p-1 rounded text-zinc-700 ${
+                  isDev ? "cursor-pointer hover:bg-black/5" : ""
+                }`}
+                onClick={() => {
+                  if (isDev) {
+                    setIsEditing(true);
+                  }
+                }}
               >
                 {pageData?.description || "Add a description..."}
               </p>
@@ -161,7 +276,7 @@ const PageDetailsData = () => {
             <p className="text-base font-bold">
               Total versions ({pageData?.versions.length})
             </p>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 mt-1">
               {pageData?.versions.map((version) => (
                 <div
                   key={version.id}
@@ -174,15 +289,31 @@ const PageDetailsData = () => {
                     >
                       {version.id} - {version.name}
                     </Link>
-                    <button
-                      onClick={() => {
-                        setEditingVersionId(version.id);
-                        setEditedVersionDescription(version.description || "");
-                      }}
-                      className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer hover:underline"
-                    >
-                      Edit
-                    </button>
+                    {isDev && (
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => {
+                            setEditingVersionId(version.id);
+                            setEditedVersionDescription(
+                              version.description || ""
+                            );
+                          }}
+                          className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer hover:underline"
+                        >
+                          Edit
+                        </button>
+                        {pageData?.versions.length > 1 &&
+                          version.id !== pageData.currentVersionId && (
+                            <button
+                              onClick={() => handleDeleteVersion(version)}
+                              disabled={isDeleting}
+                              className="text-xs text-red-500 hover:text-red-700 cursor-pointer hover:underline"
+                            >
+                              Delete
+                            </button>
+                          )}
+                      </div>
+                    )}
                   </div>
                   {editingVersionId === version.id ? (
                     <div className="mt-1">
@@ -217,33 +348,37 @@ const PageDetailsData = () => {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex items-center justify-between group">
-                      <p
-                        className="text-xs text-zinc-700 cursor-pointer hover:bg-black/5 p-1 rounded flex-grow"
-                        onClick={() => {
+                    <p
+                      className={`text-xs cursor-pointer p-1 rounded text-zinc-700 ${
+                        isDev ? "cursor-pointer hover:bg-black/5" : ""
+                      }`}
+                      onClick={() => {
+                        if (isDev) {
                           setEditingVersionId(version.id);
                           setEditedVersionDescription(
                             version.description || ""
                           );
-                        }}
-                      >
-                        {version.description || "Add a description..."}
-                      </p>
-                    </div>
+                        }
+                      }}
+                    >
+                      {version.description || "Add a description..."}
+                    </p>
                   )}
                 </div>
               ))}
             </div>
-            <button
-              className="mt-4 text-white w-full py-1 rounded-md text-xs font-bold bg-gray-500 cursor-pointer"
-              onClick={async () => {
-                if (pageData) {
-                  await handleCopy(pageData);
-                }
-              }}
-            >
-              Add Version
-            </button>
+            {isDev && (
+              <button
+                className="mt-4 text-white w-full py-1 rounded-md text-xs font-bold bg-gray-500 cursor-pointer"
+                onClick={async () => {
+                  if (pageData) {
+                    await handleCopy(pageData);
+                  }
+                }}
+              >
+                Add Version
+              </button>
+            )}
           </div>
         </>
       )}

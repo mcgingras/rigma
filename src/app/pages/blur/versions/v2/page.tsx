@@ -49,7 +49,7 @@ export default function BlurPage() {
           ></div>
         </ProgressiveBlur>
         <div className="absolute bottom-0 left-0 p-8">
-          <h4 className="text-4xl font-bold mb-2">Agent!</h4>
+          <h4 className="text-4xl font-bold mb-2">Agent</h4>
           <p className="text-base text-white/70">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos.

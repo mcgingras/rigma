@@ -1,7 +1,7 @@
 {
   "id": "stack",
   "name": "stack",
-  "description": "stack page",
+  "description": "Animated stack of notification items",
   "versions": [
     {
       "id": "v1",
@@ -13,5 +13,5 @@
   ],
   "currentVersionId": "v1",
   "createdAt": "2025-05-13T20:56:23.227Z",
-  "updatedAt": "2025-05-13T20:56:23.227Z"
+  "updatedAt": "2025-05-14T12:42:58.435Z"
 }

@@ -1,17 +1,17 @@
 {
   "id": "cards",
-  "name": "cards",
-  "description": "cards page",
+  "name": "Card swipe",
+  "description": "demos card swipe animation potentially useful for swiping a stack of notifications or daily news or something",
   "versions": [
     {
       "id": "v1",
       "name": "Initial Version",
-      "description": "Migrated from original page",
+      "description": "v1 of swipe. Todo: click a card to animate focus",
       "createdAt": "2025-05-13T20:56:23.226Z",
-      "updatedAt": "2025-05-13T20:56:23.226Z"
+      "updatedAt": "2025-05-14T13:19:04.049Z"
     }
   ],
   "currentVersionId": "v1",
   "createdAt": "2025-05-13T20:56:23.226Z",
-  "updatedAt": "2025-05-13T20:56:23.226Z"
+  "updatedAt": "2025-05-14T13:19:04.049Z"
 }

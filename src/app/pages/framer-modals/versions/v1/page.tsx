@@ -13,53 +13,49 @@ const cards = [
 
 function Cards({ cards, setIndex }: { cards: any; setIndex: any }) {
   return (
-    <>
-      <div className="w-full h-full grid flex-wrap grid-rows-4 p-4 md:grid-rows-6 grid-cols-2 gap-4 justify-center ">
-        {cards.map((card: any, i: number) => (
-          <>
-            <div
-              key={card.id}
-              /* Bento Box Grid Layout */
-              className={`col-span-1 md:col-span-1 p-0 ${
-                i == 1
-                  ? "md:row-span-4"
-                  : i == 3
-                  ? "md:row-span-2"
-                  : "md:row-span-3"
-              }`}
+    <div className="w-full h-full grid flex-wrap grid-rows-4 p-4 md:grid-rows-6 grid-cols-2 gap-4 justify-center">
+      {cards.map((card: any, i: number) => (
+        <div
+          key={card.id}
+          /* Bento Box Grid Layout */
+          className={`col-span-1 md:col-span-1 p-0 ${
+            i == 1
+              ? "md:row-span-4"
+              : i == 3
+              ? "md:row-span-2"
+              : "md:row-span-3"
+          }`}
+        >
+          <motion.div
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+            }}
+            whileHover={{
+              scale: 0.98,
+              color: "#f7f7f7",
+            }}
+            className={`flex w-full h-full`}
+            onClick={() => {
+              setIndex(i);
+            }}
+            style={{
+              backgroundColor: card.color,
+              color: "#000",
+              borderRadius: "30px",
+            }}
+            layoutId={card.id}
+          >
+            <motion.p
+              className="text-3xl p-4 font-bold self-end"
+              layoutId="card-title"
             >
-              <motion.div
-                transition={{
-                  duration: 0.3,
-                  ease: "easeInOut",
-                }}
-                whileHover={{
-                  scale: 0.98,
-                  color: "#f7f7f7",
-                }}
-                className={`flex w-full h-full`}
-                onClick={() => {
-                  setIndex(i);
-                }}
-                style={{
-                  backgroundColor: card.color,
-                  color: "#000",
-                  borderRadius: "30px",
-                }}
-                layoutId={card.id}
-              >
-                <motion.p
-                  className="text-3xl p-4 font-bold self-end"
-                  layoutId="card-title"
-                >
-                  {card.title}
-                </motion.p>
-              </motion.div>
-            </div>
-          </>
-        ))}
-      </div>
-    </>
+              {card.title}
+            </motion.p>
+          </motion.div>
+        </div>
+      ))}
+    </div>
   );
 }
 

@@ -1,17 +1,17 @@
 {
   "id": "blur-full",
   "name": "blur-full",
-  "description": "blur-full page",
+  "description": "Unfinished full page blur focus mode prototype.",
   "versions": [
     {
       "id": "v1",
       "name": "Initial Version",
-      "description": "Migrated from original page",
+      "description": "tbd",
       "createdAt": "2025-05-13T20:56:23.225Z",
-      "updatedAt": "2025-05-13T20:56:23.225Z"
+      "updatedAt": "2025-05-14T13:17:20.228Z"
     }
   ],
   "currentVersionId": "v1",
   "createdAt": "2025-05-13T20:56:23.225Z",
-  "updatedAt": "2025-05-13T20:56:23.225Z"
+  "updatedAt": "2025-05-14T13:17:20.228Z"
 }

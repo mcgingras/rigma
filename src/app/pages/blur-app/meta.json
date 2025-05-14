@@ -1,17 +1,17 @@
 {
   "id": "blur-app",
   "name": "blur-app",
-  "description": "blur-app page",
+  "description": "Click top left to animate in a blurred nav.",
   "versions": [
     {
       "id": "v1",
       "name": "Initial Version",
-      "description": "Migrated from original page",
+      "description": "Adds blurred nav.",
       "createdAt": "2025-05-13T20:56:23.225Z",
-      "updatedAt": "2025-05-13T20:56:23.225Z"
+      "updatedAt": "2025-05-14T13:17:01.891Z"
     }
   ],
   "currentVersionId": "v1",
   "createdAt": "2025-05-13T20:56:23.225Z",
-  "updatedAt": "2025-05-13T20:56:23.225Z"
+  "updatedAt": "2025-05-14T13:17:01.891Z"
 }

@@ -1,17 +1,17 @@
 {
   "id": "framer-modals",
-  "name": "framer-modals",
-  "description": "framer-modals page",
+  "name": "bento-modal",
+  "description": "Related to bento layout but demos bento to focused animation transition",
   "versions": [
     {
       "id": "v1",
       "name": "Initial Version",
-      "description": "Migrated from original page",
+      "description": "pulls from framer docs",
       "createdAt": "2025-05-13T20:56:23.226Z",
-      "updatedAt": "2025-05-13T20:56:23.226Z"
+      "updatedAt": "2025-05-14T13:19:37.671Z"
     }
   ],
   "currentVersionId": "v1",
   "createdAt": "2025-05-13T20:56:23.226Z",
-  "updatedAt": "2025-05-13T20:56:23.226Z"
+  "updatedAt": "2025-05-14T13:19:37.671Z"
 }

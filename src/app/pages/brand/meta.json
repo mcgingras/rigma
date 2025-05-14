@@ -1,24 +1,24 @@
 {
   "id": "brand",
-  "name": "brand",
-  "description": "brand page",
+  "name": "agent focus",
+  "description": "Hides agent girl behind the A logo to keep layout clean. 3 step process a -> agent -> focus mode",
   "versions": [
     {
       "id": "v1",
       "name": "Initial Version",
-      "description": "Migrated from original page",
+      "description": "bouncy",
       "createdAt": "2025-05-13T20:56:23.225Z",
-      "updatedAt": "2025-05-13T20:56:23.225Z"
+      "updatedAt": "2025-05-14T13:17:58.769Z"
     },
     {
       "id": "v2",
       "name": "brand - Copy",
-      "description": "Copy of current version",
+      "description": "clean",
       "createdAt": "2025-05-14T13:14:29.012Z",
-      "updatedAt": "2025-05-14T13:14:29.012Z"
+      "updatedAt": "2025-05-14T13:18:01.396Z"
     }
   ],
   "currentVersionId": "v2",
   "createdAt": "2025-05-13T20:56:23.225Z",
-  "updatedAt": "2025-05-14T13:14:29.012Z"
+  "updatedAt": "2025-05-14T13:18:19.443Z"
 }

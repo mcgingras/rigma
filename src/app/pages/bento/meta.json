@@ -1,17 +1,17 @@
 {
   "id": "bento",
   "name": "bento",
-  "description": "Bento",
+  "description": "Demos a bento app layout.",
   "versions": [
     {
       "id": "v1",
       "name": "Initial Version",
-      "description": "Migrated from original page",
+      "description": "horrible 5 minute prototype, I don't love this approach but still think there is something here for default home screen with live dynamic cards that link out to different fuller feature experiences. Dot computer as inspo",
       "createdAt": "2025-05-13T20:56:23.224Z",
-      "updatedAt": "2025-05-13T20:56:23.224Z"
+      "updatedAt": "2025-05-14T13:16:34.853Z"
     }
   ],
   "currentVersionId": "v1",
   "createdAt": "2025-05-13T20:56:23.224Z",
-  "updatedAt": "2025-05-14T12:16:30.537Z"
+  "updatedAt": "2025-05-14T13:16:34.853Z"
 }

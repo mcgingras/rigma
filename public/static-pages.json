@@ -2,19 +2,19 @@
   {
     "id": "bento",
     "name": "bento",
-    "description": "Bento",
+    "description": "Demos a bento app layout.",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "horrible 5 minute prototype, I don't love this approach but still think there is something here for default home screen with live dynamic cards that link out to different fuller feature experiences. Dot computer as inspo",
         "createdAt": "2025-05-13T20:56:23.224Z",
-        "updatedAt": "2025-05-13T20:56:23.224Z"
+        "updatedAt": "2025-05-14T13:16:34.853Z"
       }
     ],
     "currentVersionId": "v1",
     "createdAt": "2025-05-13T20:56:23.224Z",
-    "updatedAt": "2025-05-14T12:16:30.537Z"
+    "updatedAt": "2025-05-14T13:16:34.853Z"
   },
   {
     "id": "blur",
@@ -36,77 +36,77 @@
   {
     "id": "blur-app",
     "name": "blur-app",
-    "description": "blur-app page",
+    "description": "Click top left to animate in a blurred nav.",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "Adds blurred nav.",
         "createdAt": "2025-05-13T20:56:23.225Z",
-        "updatedAt": "2025-05-13T20:56:23.225Z"
+        "updatedAt": "2025-05-14T13:17:01.891Z"
       }
     ],
     "currentVersionId": "v1",
     "createdAt": "2025-05-13T20:56:23.225Z",
-    "updatedAt": "2025-05-13T20:56:23.225Z"
+    "updatedAt": "2025-05-14T13:17:01.891Z"
   },
   {
     "id": "blur-full",
     "name": "blur-full",
-    "description": "blur-full page",
+    "description": "Unfinished full page blur focus mode prototype.",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "tbd",
         "createdAt": "2025-05-13T20:56:23.225Z",
-        "updatedAt": "2025-05-13T20:56:23.225Z"
+        "updatedAt": "2025-05-14T13:17:20.228Z"
       }
     ],
     "currentVersionId": "v1",
     "createdAt": "2025-05-13T20:56:23.225Z",
-    "updatedAt": "2025-05-13T20:56:23.225Z"
+    "updatedAt": "2025-05-14T13:17:20.228Z"
   },
   {
     "id": "brand",
-    "name": "brand",
-    "description": "brand page",
+    "name": "agent focus",
+    "description": "Hides agent girl behind the A logo to keep layout clean. 3 step process a -> agent -> focus mode",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "bouncy",
         "createdAt": "2025-05-13T20:56:23.225Z",
-        "updatedAt": "2025-05-13T20:56:23.225Z"
+        "updatedAt": "2025-05-14T13:17:58.769Z"
       },
       {
         "id": "v2",
         "name": "brand - Copy",
-        "description": "Copy of current version",
+        "description": "clean",
         "createdAt": "2025-05-14T13:14:29.012Z",
-        "updatedAt": "2025-05-14T13:14:29.012Z"
+        "updatedAt": "2025-05-14T13:18:01.396Z"
       }
     ],
     "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.225Z",
-    "updatedAt": "2025-05-14T13:14:29.012Z"
+    "updatedAt": "2025-05-14T13:18:19.443Z"
   },
   {
     "id": "cards",
-    "name": "cards",
-    "description": "cards page",
+    "name": "Card swipe",
+    "description": "demos card swipe animation potentially useful for swiping a stack of notifications or daily news or something",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "v1 of swipe. Todo: click a card to animate focus",
         "createdAt": "2025-05-13T20:56:23.226Z",
-        "updatedAt": "2025-05-13T20:56:23.226Z"
+        "updatedAt": "2025-05-14T13:19:04.049Z"
       }
     ],
     "currentVersionId": "v1",
     "createdAt": "2025-05-13T20:56:23.226Z",
-    "updatedAt": "2025-05-13T20:56:23.226Z"
+    "updatedAt": "2025-05-14T13:19:04.049Z"
   },
   {
     "id": "chart",
@@ -134,44 +134,37 @@
   },
   {
     "id": "framer-modals",
-    "name": "framer-modals",
-    "description": "framer-modals page",
+    "name": "bento-modal",
+    "description": "Related to bento layout but demos bento to focused animation transition",
     "versions": [
       {
         "id": "v1",
         "name": "Initial Version",
-        "description": "Migrated from original page",
+        "description": "pulls from framer docs",
         "createdAt": "2025-05-13T20:56:23.226Z",
-        "updatedAt": "2025-05-13T20:56:23.226Z"
+        "updatedAt": "2025-05-14T13:19:37.671Z"
       }
     ],
     "currentVersionId": "v1",
     "createdAt": "2025-05-13T20:56:23.226Z",
-    "updatedAt": "2025-05-13T20:56:23.226Z"
+    "updatedAt": "2025-05-14T13:19:37.671Z"
   },
   {
     "id": "home",
-    "name": "home",
-    "description": "home page",
+    "name": "home ambient",
+    "description": "attempts to hide agent girl a bit more subtly.",
     "versions": [
-      {
-        "id": "v1",
-        "name": "Initial Version",
-        "description": "Migrated from original page",
-        "createdAt": "2025-05-13T20:56:23.227Z",
-        "updatedAt": "2025-05-13T20:56:23.227Z"
-      },
       {
         "id": "v2",
         "name": "Updated Version",
-        "description": "Updated version",
+        "description": "Click in top right, blocked right now by page details modal.",
         "createdAt": "2025-05-13T20:56:23.227Z",
-        "updatedAt": "2025-05-13T20:56:23.227Z"
+        "updatedAt": "2025-05-14T13:20:44.444Z"
       }
     ],
     "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.227Z",
-    "updatedAt": "2025-05-13T20:56:23.227Z"
+    "updatedAt": "2025-05-14T13:20:45.575Z"
   },
   {
     "id": "stack",

@@ -1,24 +1,17 @@
 {
   "id": "home",
-  "name": "home",
-  "description": "home page",
+  "name": "home ambient",
+  "description": "attempts to hide agent girl a bit more subtly.",
   "versions": [
-    {
-      "id": "v1",
-      "name": "Initial Version",
-      "description": "Migrated from original page",
-      "createdAt": "2025-05-13T20:56:23.227Z",
-      "updatedAt": "2025-05-13T20:56:23.227Z"
-    },
     {
       "id": "v2",
       "name": "Updated Version",
-      "description": "Updated version",
+      "description": "Click in top right, blocked right now by page details modal.",
       "createdAt": "2025-05-13T20:56:23.227Z",
-      "updatedAt": "2025-05-13T20:56:23.227Z"
+      "updatedAt": "2025-05-14T13:20:44.444Z"
     }
   ],
   "currentVersionId": "v2",
   "createdAt": "2025-05-13T20:56:23.227Z",
-  "updatedAt": "2025-05-13T20:56:23.227Z"
+  "updatedAt": "2025-05-14T13:20:45.575Z"
 }

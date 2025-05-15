@@ -19,7 +19,7 @@
   {
     "id": "blur",
     "name": "blur",
-    "description": "Progressive blur on a card. We could try this with more images and more cards, the lower half is blurred.",
+    "description": "Progressive blur on a card. We could try this with more images and more cards, the lower half is blurred. EDIT!!!",
     "versions": [
       {
         "id": "v2",
@@ -27,11 +27,18 @@
         "description": "Just testing versioning",
         "createdAt": "2025-05-14T12:06:59.999Z",
         "updatedAt": "2025-05-14T12:11:56.710Z"
+      },
+      {
+        "id": "v2",
+        "name": "blur - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-05-14T19:18:45.957Z",
+        "updatedAt": "2025-05-14T19:18:45.957Z"
       }
     ],
     "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.224Z",
-    "updatedAt": "2025-05-14T12:35:09.422Z"
+    "updatedAt": "2025-05-14T19:18:45.957Z"
   },
   {
     "id": "blur-app",
@@ -102,11 +109,18 @@
         "description": "v1 of swipe. Todo: click a card to animate focus",
         "createdAt": "2025-05-13T20:56:23.226Z",
         "updatedAt": "2025-05-14T13:19:04.049Z"
+      },
+      {
+        "id": "v2",
+        "name": "Card swipe - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-05-14T19:19:22.573Z",
+        "updatedAt": "2025-05-14T19:19:22.573Z"
       }
     ],
-    "currentVersionId": "v1",
+    "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.226Z",
-    "updatedAt": "2025-05-14T13:19:04.049Z"
+    "updatedAt": "2025-05-14T19:19:22.573Z"
   },
   {
     "id": "chart",

@@ -181,6 +181,37 @@
     "updatedAt": "2025-05-14T13:20:45.575Z"
   },
   {
+    "id": "new_page",
+    "name": "Token combination",
+    "description": "Combines like tokens in the table",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "new_page - Initial Version",
+        "description": "Initial version",
+        "createdAt": "2025-05-19T17:35:48.664Z",
+        "updatedAt": "2025-05-19T17:35:48.664Z"
+      },
+      {
+        "id": "v2",
+        "name": "new_page - Copy",
+        "description": "ChatGPT's version lol",
+        "createdAt": "2025-05-19T19:08:53.512Z",
+        "updatedAt": "2025-05-19T19:11:22.091Z"
+      },
+      {
+        "id": "v3",
+        "name": "new_page - Copy",
+        "description": "Best version. Animates well.",
+        "createdAt": "2025-05-19T19:11:30.337Z",
+        "updatedAt": "2025-05-19T20:19:47.382Z"
+      }
+    ],
+    "currentVersionId": "v3",
+    "createdAt": "2025-05-19T17:35:48.664Z",
+    "updatedAt": "2025-05-19T20:20:06.640Z"
+  },
+  {
     "id": "stack",
     "name": "stack",
     "description": "Animated stack of notification items",

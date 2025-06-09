@@ -1,0 +1,17 @@
+{
+  "id": "glass_button",
+  "name": "glass_button",
+  "description": "glass_button page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "glass_button - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-06-09T15:32:16.864Z",
+      "updatedAt": "2025-06-09T15:32:16.864Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-06-09T15:32:16.864Z",
+  "updatedAt": "2025-06-09T15:32:16.864Z"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "portfolio",
+  "name": "portfolio",
+  "description": "Portfolio chart iterations",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "portfolio - Initial Version",
+      "description": "Trying out a new portfolio layout and fixing the empty data problem.",
+      "createdAt": "2025-05-20T16:13:19.386Z",
+      "updatedAt": "2025-05-20T18:10:06.976Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-05-20T16:13:19.386Z",
+  "updatedAt": "2025-05-20T18:10:14.761Z"
+}

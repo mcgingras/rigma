@@ -1,0 +1,17 @@
+{
+  "id": "dynamic-island",
+  "name": "dynamic-island",
+  "description": "dynamic-island page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Dynamic Island - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-06-09T16:35:38.051Z",
+      "updatedAt": "2025-06-09T16:35:38.051Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-06-09T16:35:38.051Z",
+  "updatedAt": "2025-06-09T16:35:38.051Z"
+}

@@ -157,11 +157,18 @@
         "description": "Initial version",
         "createdAt": "2025-06-09T16:35:38.051Z",
         "updatedAt": "2025-06-09T16:35:38.051Z"
+      },
+      {
+        "id": "v2",
+        "name": "dynamic-island - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-06-09T22:45:38.508Z",
+        "updatedAt": "2025-06-09T22:45:38.508Z"
       }
     ],
-    "currentVersionId": "v1",
+    "currentVersionId": "v2",
     "createdAt": "2025-06-09T16:35:38.051Z",
-    "updatedAt": "2025-06-09T16:35:38.051Z"
+    "updatedAt": "2025-06-09T22:45:38.508Z"
   },
   {
     "id": "framer-modals",
@@ -213,6 +220,23 @@
     "currentVersionId": "v2",
     "createdAt": "2025-05-13T20:56:23.227Z",
     "updatedAt": "2025-05-14T13:20:45.575Z"
+  },
+  {
+    "id": "new_page",
+    "name": "new_page",
+    "description": "new_page page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "new_page - Initial Version",
+        "description": "Initial version",
+        "createdAt": "2025-06-10T00:11:21.745Z",
+        "updatedAt": "2025-06-10T00:11:21.745Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-06-10T00:11:21.745Z",
+    "updatedAt": "2025-06-10T00:11:21.745Z"
   },
   {
     "id": "portfolio",
@@ -278,6 +302,23 @@
     "currentVersionId": "v3",
     "createdAt": "2025-05-20T16:13:12.541Z",
     "updatedAt": "2025-05-20T16:13:12.541Z"
+  },
+  {
+    "id": "trad-nav",
+    "name": "Trad Nav",
+    "description": "Trad Nav page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Trad Nav - Initial Version",
+        "description": "Initial version",
+        "createdAt": "2025-06-10T00:11:38.776Z",
+        "updatedAt": "2025-06-10T00:11:38.776Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-06-10T00:11:38.776Z",
+    "updatedAt": "2025-06-10T00:11:38.776Z"
   },
   {
     "id": "warp",

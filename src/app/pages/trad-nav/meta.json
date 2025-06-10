@@ -1,0 +1,17 @@
+{
+  "id": "trad-nav",
+  "name": "Trad Nav",
+  "description": "Trad Nav page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Trad Nav - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-06-10T00:11:38.776Z",
+      "updatedAt": "2025-06-10T00:11:38.776Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-06-10T00:11:38.776Z",
+  "updatedAt": "2025-06-10T00:11:38.776Z"
+}

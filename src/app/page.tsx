@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PageGrid from "@/components/PageGrid";
 import { usePageStore } from "@/store/usePageStore";
 import { Page } from "@/types/page";
 import { isDevMode } from "@/lib/mode";
+import PageList from "@/components/PageList";
 
 export default function Home() {
   const { refreshPages } = usePageStore();
   const isDev = isDevMode();
+  const [isGrid, setGrid] = useState(false);
   useEffect(() => {
     refreshPages();
   }, []);
@@ -54,6 +56,7 @@ export default function ${finalName}() {
     <main className="min-h-screen">
       <div className="border-b border-zinc-800 p-4 flex justify-between items-center bg-zinc-900">
         <h1 className="text-2xl font-bold">UI prototypes</h1>
+        <div className="flex flex-row gap-2"></div>
         {isDev && (
           <button
             onClick={handleNewPage}
@@ -62,10 +65,16 @@ export default function ${finalName}() {
             New Page
           </button>
         )}
+        <button
+          onClick={() => setGrid(!isGrid)}
+          className="text-base font-bold text-zinc-300 hover:text-zinc-400 bg-zinc-700 px-4 py-2 rounded-lg cursor-pointer"
+        >
+          {isGrid ? "List" : "Grid"}
+        </button>
       </div>
 
       <div className="h-[calc(100vh-73px)] overflow-auto">
-        <PageGrid />
+        {isGrid ? <PageGrid /> : <PageList />}
       </div>
     </main>
   );

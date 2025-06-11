@@ -1,0 +1,17 @@
+{
+  "id": "daily-report",
+  "name": "daily-report",
+  "description": "daily-report page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "daily-report - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-06-10T20:59:30.828Z",
+      "updatedAt": "2025-06-10T20:59:30.828Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-06-10T20:59:30.828Z",
+  "updatedAt": "2025-06-10T20:59:30.828Z"
+}

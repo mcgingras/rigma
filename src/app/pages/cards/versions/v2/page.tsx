@@ -11,15 +11,15 @@ import { useState } from "react";
 interface CardData {
   id: number;
   content: string;
-  bgColor: string;
+  text: string;
 }
 
 const initialCardsData: CardData[] = [
-  { id: 1, content: "Card 1", bgColor: "bg-red-500" },
-  { id: 2, content: "Card 2", bgColor: "bg-blue-500" },
-  { id: 3, content: "Card 3", bgColor: "bg-green-500" },
-  { id: 4, content: "Card 4", bgColor: "bg-yellow-400" },
-  { id: 5, content: "Card 5", bgColor: "bg-purple-500" },
+  { id: 1, content: "Card 1", text: "Tokens unlocked" },
+  { id: 2, content: "Card 2", text: "Security alert" },
+  { id: 3, content: "Card 3", text: "New message" },
+  { id: 4, content: "Card 4", text: "Friend request" },
+  { id: 5, content: "Card 5", text: "New notification" },
 ];
 
 const SWIPE_THRESHOLD = 100; // Minimum x offset for a swipe
@@ -42,6 +42,7 @@ const CardMotionItem: React.FC<CardMotionItemProps> = ({
   index,
   onSwipe,
   setDragPercentage,
+  isTopCard,
 }) => {
   const x = useMotionValue(0);
   const translateX = useTransform(x, [-100, 0, 100], [-100, 0, 100]);
@@ -61,11 +62,14 @@ const CardMotionItem: React.FC<CardMotionItemProps> = ({
     const xValue = x.get();
     if (xValue > SWIPE_THRESHOLD || xValue < -SWIPE_THRESHOLD) {
       setIsTransitioning(true);
-      // Animate to the edge first
-      await animate(x, xValue > 0 ? 170 : -170, {
-        duration: 0.1,
-      });
+      //   Animate to the edge first
+      if (Math.abs(xValue) < 160) {
+        await animate(x, xValue > 0 ? 170 : -170, {
+          duration: 0.1,
+        });
+      }
       onSwipe(card.id);
+
       // Keep completeness at 1 during the array rearrangement
       await new Promise((resolve) => setTimeout(resolve, 50));
       // Now reset position with a spring animation
@@ -84,26 +88,44 @@ const CardMotionItem: React.FC<CardMotionItemProps> = ({
     }
   };
 
+  const getMessyRotation = (cardIndex: number) => {
+    // Top card is always straight, others get messy rotations
+    if (cardIndex === 0) return 0;
+    const rotations = [-3, 2, -1, 4, -2, 1, -4, 3, -5];
+    return rotations[(cardIndex - 1) % rotations.length];
+  };
+
   return (
     <motion.div
-      className={`w-full h-full rounded-xl shadow-lg ${card.bgColor} absolute cursor-grab`}
+      className={`w-full h-full rounded-xl shadow-lg text-black absolute cursor-grab border border-gray-300 bg-gray-200`}
       drag="x"
+      animate={{
+        scale: 1 - (4 - index - (isTransitioning ? 1 : completeness)) * 0.01,
+        rotate: isTopCard ? 0 : getMessyRotation(index),
+      }}
+      transition={{
+        scale: { duration: 0.3, ease: "easeInOut" },
+        rotate: { duration: 0.3, ease: "easeInOut" },
+      }}
       style={{
         x,
         translateX,
         rotateY,
         transformStyle: "preserve-3d",
-        scale: 1 - (4 - index - (isTransitioning ? 1 : completeness)) * 0.01,
-        rotate: (4 - index - (isTransitioning ? 1 : completeness)) * 2,
       }}
       onDragEnd={handleDragEnd}
       dragElastic={0.3}
       dragMomentum={false}
       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
     >
-      <div className="h-full w-full p-4">
-        <p className="text-2xl font-bold text-white">Goodbye from {card.id}</p>
-        <span className="text-white">Maybe we need some text here</span>
+      <div className="h-[calc(100%-2rem)] w-[calc(100%-2rem)] m-4 p-4 mx-auto bg-white rounded-xl flex flex-col items-center justify-center shadow-lg">
+        <p className="text-2xl font-bold text-center text-gray-700 mb-4">
+          {card.text}
+        </p>
+        <div className="border-t pt-4 text-gray-500 border-gray-200 w-full flex flex-col items-center justify-center">
+          <p className="text-sm text-gray-500">Some text as a footer</p>
+          <p className="text-sm text-gray-500">more text here</p>
+        </div>
       </div>
     </motion.div>
   );
@@ -117,7 +139,7 @@ export default function CardsPage() {
     direction: number;
   } | null>(null);
 
-  const cardContainerSize = { width: 300, height: 400 }; // Define fixed card size
+  const cardContainerSize = { width: 300, height: 300 }; // Define fixed card size
 
   const handleActualSwipe = () => {
     setTimeout(() => {
@@ -136,7 +158,7 @@ export default function CardsPage() {
   // Removed getCardAnimProps from here, logic moved to calculateAnimProps
 
   return (
-    <main className="h-screen w-screen bg-gray-200 flex flex-col items-center justify-center overflow-hidden select-none">
+    <main className="h-screen w-screen bg-gray-100 flex flex-col items-center justify-center overflow-hidden select-none">
       <div
         className="relative"
         style={{
@@ -153,7 +175,7 @@ export default function CardsPage() {
             index={idx}
             dragPercentage={dragPercentage}
             setDragPercentage={setDragPercentage}
-            isTopCard={idx === 0}
+            isTopCard={idx === cards.length - 1}
             currentSwipedCardInfo={swipedCardInfo}
             totalCards={cards.length}
             onSwipe={handleActualSwipe}

@@ -1,0 +1,17 @@
+{
+  "id": "glass-bg",
+  "name": "glass-bg",
+  "description": "glass-bg page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "glass-bg - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-06-10T02:11:05.086Z",
+      "updatedAt": "2025-06-10T02:11:05.086Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-06-10T02:11:05.086Z",
+  "updatedAt": "2025-06-10T02:11:05.086Z"
+}

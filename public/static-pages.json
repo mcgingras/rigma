@@ -1,5 +1,22 @@
 [
   {
+    "id": "4finger",
+    "name": "4finger",
+    "description": "4finger page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "4finger - Initial Version",
+        "description": "Initial version",
+        "createdAt": "2025-06-11T03:40:20.720Z",
+        "updatedAt": "2025-06-11T03:40:20.720Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-06-11T03:40:20.720Z",
+    "updatedAt": "2025-06-11T03:40:20.720Z"
+  },
+  {
     "id": "agent-comms",
     "name": "Agent Comms",
     "description": "Agent Comms page",
@@ -195,11 +212,18 @@
         "description": "Initial version",
         "createdAt": "2025-06-10T20:59:30.828Z",
         "updatedAt": "2025-06-10T20:59:30.828Z"
+      },
+      {
+        "id": "v2",
+        "name": "daily-report - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-06-11T14:34:24.272Z",
+        "updatedAt": "2025-06-11T14:34:24.272Z"
       }
     ],
-    "currentVersionId": "v1",
+    "currentVersionId": "v2",
     "createdAt": "2025-06-10T20:59:30.828Z",
-    "updatedAt": "2025-06-10T20:59:30.828Z"
+    "updatedAt": "2025-06-11T14:34:24.272Z"
   },
   {
     "id": "dynamic-island",
@@ -219,11 +243,18 @@
         "description": "Copy of current version",
         "createdAt": "2025-06-09T22:45:38.508Z",
         "updatedAt": "2025-06-09T22:45:38.508Z"
+      },
+      {
+        "id": "v3",
+        "name": "dynamic-island - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-06-12T01:26:24.332Z",
+        "updatedAt": "2025-06-12T01:26:24.332Z"
       }
     ],
-    "currentVersionId": "v2",
+    "currentVersionId": "v3",
     "createdAt": "2025-06-09T16:35:38.051Z",
-    "updatedAt": "2025-06-09T22:45:38.508Z"
+    "updatedAt": "2025-06-12T01:26:24.332Z"
   },
   {
     "id": "framer-modals",
@@ -393,11 +424,18 @@
         "description": "Initial version",
         "createdAt": "2025-06-10T00:11:38.776Z",
         "updatedAt": "2025-06-10T00:11:38.776Z"
+      },
+      {
+        "id": "v2",
+        "name": "Trad Nav - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-06-11T17:45:51.067Z",
+        "updatedAt": "2025-06-11T17:45:51.067Z"
       }
     ],
-    "currentVersionId": "v1",
+    "currentVersionId": "v2",
     "createdAt": "2025-06-10T00:11:38.776Z",
-    "updatedAt": "2025-06-10T00:11:38.776Z"
+    "updatedAt": "2025-06-11T17:45:51.067Z"
   },
   {
     "id": "warp",

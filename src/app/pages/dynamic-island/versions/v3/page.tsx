@@ -399,7 +399,7 @@ const Idle = ({ onWidgetTransfer }: { onWidgetTransfer?: () => void }) => {
   );
 };
 
-export default function DynamicIsland({ context = "" }: { context?: string }) {
+export default function DynamicIsland() {
   const [variantKey, setVariantKey] = useState<string>("idle");
   const [view, setView] = useState<"idle" | "swap" | "agent-with-text">("idle");
   const [showDashboardWidget, setShowDashboardWidget] = useState(false);
@@ -413,7 +413,7 @@ export default function DynamicIsland({ context = "" }: { context?: string }) {
       case "idle":
         return <Idle onWidgetTransfer={handleWidgetTransfer} />;
     }
-  }, [view, context]);
+  }, [view]);
 
   return (
     <div className="h-screen w-screen bg-[url('/assets/grad.png')] p-8 flex flex-col justify-between">

@@ -16,9 +16,16 @@
       "description": "Copy of current version",
       "createdAt": "2025-06-09T22:45:38.508Z",
       "updatedAt": "2025-06-09T22:45:38.508Z"
+    },
+    {
+      "id": "v3",
+      "name": "dynamic-island - Copy",
+      "description": "Copy of current version",
+      "createdAt": "2025-06-12T01:26:24.332Z",
+      "updatedAt": "2025-06-12T01:26:24.332Z"
     }
   ],
-  "currentVersionId": "v2",
+  "currentVersionId": "v3",
   "createdAt": "2025-06-09T16:35:38.051Z",
-  "updatedAt": "2025-06-09T22:45:38.508Z"
+  "updatedAt": "2025-06-12T01:26:24.332Z"
 }

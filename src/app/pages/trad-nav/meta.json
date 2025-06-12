@@ -9,9 +9,16 @@
       "description": "Initial version",
       "createdAt": "2025-06-10T00:11:38.776Z",
       "updatedAt": "2025-06-10T00:11:38.776Z"
+    },
+    {
+      "id": "v2",
+      "name": "Trad Nav - Copy",
+      "description": "Copy of current version",
+      "createdAt": "2025-06-11T17:45:51.067Z",
+      "updatedAt": "2025-06-11T17:45:51.067Z"
     }
   ],
-  "currentVersionId": "v1",
+  "currentVersionId": "v2",
   "createdAt": "2025-06-10T00:11:38.776Z",
-  "updatedAt": "2025-06-10T00:11:38.776Z"
+  "updatedAt": "2025-06-11T17:45:51.067Z"
 }

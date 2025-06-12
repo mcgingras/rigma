@@ -1,0 +1,17 @@
+{
+  "id": "4finger",
+  "name": "4finger",
+  "description": "4finger page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "4finger - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-06-11T03:40:20.720Z",
+      "updatedAt": "2025-06-11T03:40:20.720Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-06-11T03:40:20.720Z",
+  "updatedAt": "2025-06-11T03:40:20.720Z"
+}

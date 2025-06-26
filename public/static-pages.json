@@ -55,6 +55,65 @@
     "updatedAt": "2025-06-10T03:42:32.522Z"
   },
   {
+    "id": "agent-container",
+    "name": "agent-container",
+    "description": "Agent nav / container animation",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "v1",
+        "description": "Kinda a dud",
+        "createdAt": "2025-06-25T19:52:45.884Z",
+        "updatedAt": "2025-06-26T04:42:12.109Z"
+      },
+      {
+        "id": "v2",
+        "name": "v2",
+        "description": "Simple animation",
+        "createdAt": "2025-06-25T22:58:42.320Z",
+        "updatedAt": "2025-06-26T04:42:19.566Z"
+      },
+      {
+        "id": "v3",
+        "name": "v3",
+        "description": "Simple with y movement",
+        "createdAt": "2025-06-26T00:06:00.722Z",
+        "updatedAt": "2025-06-26T04:42:25.076Z"
+      },
+      {
+        "id": "v4",
+        "name": "v4",
+        "description": "3d transform debugger",
+        "createdAt": "2025-06-26T03:50:36.763Z",
+        "updatedAt": "2025-06-26T04:42:36.110Z"
+      },
+      {
+        "id": "v5",
+        "name": "v5",
+        "description": "Attempts the blur mask with SVGs",
+        "createdAt": "2025-06-26T04:03:09.814Z",
+        "updatedAt": "2025-06-26T14:27:06.886Z"
+      },
+      {
+        "id": "v6",
+        "name": "agent-container - Copy",
+        "description": "Adds daily digest",
+        "createdAt": "2025-06-26T14:26:52.295Z",
+        "updatedAt": "2025-06-26T17:29:58.241Z"
+      },
+      {
+        "id": "v7",
+        "name": "agent-container - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-06-26T17:30:02.042Z",
+        "updatedAt": "2025-06-26T17:30:02.042Z"
+      }
+    ],
+    "currentVersionId": "v7",
+    "createdAt": "2025-06-25T19:52:45.884Z",
+    "updatedAt": "2025-06-26T17:30:08.570Z"
+  },
+  {
     "id": "bento",
     "name": "bento",
     "description": "Demos a bento app layout.",

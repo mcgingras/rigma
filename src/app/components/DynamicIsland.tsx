@@ -47,7 +47,6 @@ const BOUNCE_VARIANTS = {
 
 const variants = {
   exit: (transition: any) => {
-    console.log(transition);
     return {
       ...transition,
       opacity: [1, 0],
@@ -92,10 +91,16 @@ const AgentWithText = () => {
   );
 };
 
-const Idle = ({ context = "", isExpanded = false }: { context?: string; isExpanded?: boolean }) => {
+const Idle = ({
+  context = "",
+  isExpanded = false,
+}: {
+  context?: string;
+  isExpanded?: boolean;
+}) => {
   const [expanded, setExpanded] = useState(false);
   const [thinking, setThinking] = useState(false);
-  
+
   // Sync with external expansion control
   useEffect(() => {
     setExpanded(isExpanded);
@@ -122,7 +127,7 @@ const Idle = ({ context = "", isExpanded = false }: { context?: string; isExpand
 
     if (event.key === "Enter") {
       setThinking(true);
-      
+
       // Auto-close after 5 seconds
       setTimeout(() => {
         setThinking(false);
@@ -168,7 +173,11 @@ const Idle = ({ context = "", isExpanded = false }: { context?: string; isExpand
           {expanded && (
             <input
               className="h-[90%] w-full bg-white/10 border-none outline-none text-black text-xs ml-2"
-              placeholder={context ? `Ask about: "${context.slice(0, 20)}..."` : "Ask me anything..."}
+              placeholder={
+                context
+                  ? `Ask about: "${context.slice(0, 20)}..."`
+                  : "Ask me anything..."
+              }
               defaultValue={context ? `Explain "${context}"` : ""}
             />
           )}

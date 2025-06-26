@@ -9,7 +9,7 @@ import { isDevMode } from "@/lib/mode";
 
 const PageDetailsData = () => {
   const isDev = isDevMode();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [pageData, setPageData] = useState<Page>();
   const [isEditing, setIsEditing] = useState(false);
   const [editedDescription, setEditedDescription] = useState("");
@@ -159,62 +159,74 @@ const PageDetailsData = () => {
   };
 
   return (
-    <div className="fixed right-4 top-4 bg-white backdrop-blur-sm text-black border border-black/10 rounded p-2 z-[9999] w-[300px]">
-      <div className="flex items-center justify-between">
-        <Link className="text-sm w-[50px]" href="/">
-          Home
-        </Link>
-        {isEditingTitle && isDev ? (
-          <div className="flex-1 mx-2">
-            <input
-              type="text"
-              value={editedTitle}
-              onChange={(e) => setEditedTitle(e.target.value)}
-              className="w-full text-base font-bold p-1 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400"
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSaveTitle();
-                } else if (e.key === "Escape") {
-                  setIsEditingTitle(false);
-                  setEditedTitle(pageData?.name || "");
-                }
-              }}
-              autoFocus
-            />
-            <div className="flex justify-end gap-2 mt-1">
-              <button
-                onClick={() => {
-                  setIsEditingTitle(false);
-                  setEditedTitle(pageData?.name || "");
+    <div className="fixed right-4 top-4 bg-white backdrop-blur-sm text-black border border-black/10 rounded p-2 z-[9999] max-w-[300px]">
+      {isOpen ? (
+        <div className="flex items-center justify-between">
+          <Link className="text-sm w-[50px]" href="/">
+            Home
+          </Link>
+          {isEditingTitle && isDev ? (
+            <div className="flex-1 mx-2">
+              <input
+                type="text"
+                value={editedTitle}
+                onChange={(e) => setEditedTitle(e.target.value)}
+                className="w-full text-base font-bold p-1 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSaveTitle();
+                  } else if (e.key === "Escape") {
+                    setIsEditingTitle(false);
+                    setEditedTitle(pageData?.name || "");
+                  }
                 }}
-                className="text-xs text-gray-500 hover:text-gray-700"
-                disabled={isSaving}
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSaveTitle}
-                className="text-xs text-white bg-gray-500 hover:bg-gray-600 px-2 py-1 rounded"
-                disabled={isSaving}
-              >
-                {isSaving ? "Saving..." : "Save"}
-              </button>
+                autoFocus
+              />
+              <div className="flex justify-end gap-2 mt-1">
+                <button
+                  onClick={() => {
+                    setIsEditingTitle(false);
+                    setEditedTitle(pageData?.name || "");
+                  }}
+                  className="text-xs text-gray-500 hover:text-gray-700"
+                  disabled={isSaving}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleSaveTitle}
+                  className="text-xs text-white bg-gray-500 hover:bg-gray-600 px-2 py-1 rounded"
+                  disabled={isSaving}
+                >
+                  {isSaving ? "Saving..." : "Save"}
+                </button>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div
-            className={`text-base font-bold ${
-              isDev ? "cursor-pointer hover:bg-black/5 px-2 py-1 rounded" : ""
-            }`}
-            onClick={() => isDev && setIsEditingTitle(true)}
+          ) : (
+            <div
+              className={`text-base font-bold ${
+                isDev ? "cursor-pointer hover:bg-black/5 px-2 py-1 rounded" : ""
+              }`}
+              onClick={() => isDev && setIsEditingTitle(true)}
+            >
+              {pageData?.name}
+            </div>
+          )}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-sm w-[50px]"
           >
-            {pageData?.name}
-          </div>
-        )}
-        <button onClick={() => setIsOpen(!isOpen)} className="text-sm w-[50px]">
-          {isOpen ? "Close" : "Open"}
+            {isOpen ? "Close" : "Open"}
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-sm w-[50px] bg-gray-500 text-white px-2 py-1 rounded"
+        >
+          Open
         </button>
-      </div>
+      )}
       {isOpen && (
         <>
           <div className="mt-2 border-t border-gray-200 pt-2">

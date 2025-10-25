@@ -1,0 +1,17 @@
+{
+  "id": "color_dodge",
+  "name": "Color Dodge",
+  "description": "Color dodge based animation",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "v1 (twitter)",
+      "description": "Initial version",
+      "createdAt": "2025-10-25T18:54:26.236Z",
+      "updatedAt": "2025-10-25T18:54:26.236Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-10-25T18:54:26.236Z",
+  "updatedAt": "2025-10-25T18:54:26.236Z"
+}

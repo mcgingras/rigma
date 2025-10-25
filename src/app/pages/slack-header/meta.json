@@ -1,0 +1,31 @@
+{
+  "id": "slack-header",
+  "name": "slack-header",
+  "description": "slack-header page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "slack-header - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-08-04T23:26:18.031Z",
+      "updatedAt": "2025-08-04T23:26:18.031Z"
+    },
+    {
+      "id": "v2",
+      "name": "slack-header - Copy",
+      "description": "Copy of current version",
+      "createdAt": "2025-08-05T01:47:02.179Z",
+      "updatedAt": "2025-08-05T01:47:02.179Z"
+    },
+    {
+      "id": "v3",
+      "name": "slack-header - Copy",
+      "description": "Copy of current version",
+      "createdAt": "2025-08-05T02:59:03.874Z",
+      "updatedAt": "2025-08-05T02:59:03.874Z"
+    }
+  ],
+  "currentVersionId": "v3",
+  "createdAt": "2025-08-04T23:26:18.031Z",
+  "updatedAt": "2025-08-05T02:59:03.874Z"
+}

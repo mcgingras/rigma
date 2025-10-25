@@ -1,0 +1,17 @@
+{
+  "id": "agent-container-iso",
+  "name": "Agent Container ISO",
+  "description": "Agent container individual components to isolate the container itself without having to deal with animations.",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-06-26T22:00:14.843Z",
+      "updatedAt": "2025-06-26T22:00:14.843Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-06-26T22:00:14.843Z",
+  "updatedAt": "2025-06-27T00:41:12.637Z"
+}

@@ -30,9 +30,9 @@ export default function Page() {
       >
         <ProgressiveBlur
           blurStart={0}
-          blurEnd={40}
+          blurEnd={100}
           direction="to-bottom"
-          layers={10}
+          layers={5}
           className=""
         >
           <div className="w-full h-[400px]"></div>

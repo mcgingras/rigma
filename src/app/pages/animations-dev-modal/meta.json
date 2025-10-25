@@ -1,0 +1,17 @@
+{
+  "id": "animations-dev-modal",
+  "name": "animations-dev-modal",
+  "description": "animations-dev-modal page",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "animations-dev-modal - Initial Version",
+      "description": "Initial version",
+      "createdAt": "2025-08-05T12:12:54.334Z",
+      "updatedAt": "2025-08-05T12:12:54.334Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2025-08-05T12:12:54.334Z",
+  "updatedAt": "2025-08-05T12:12:54.334Z"
+}

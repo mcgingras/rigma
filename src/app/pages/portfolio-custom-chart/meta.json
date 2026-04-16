@@ -1,0 +1,17 @@
+{
+  "id": "portfolio-custom-chart",
+  "name": "Portfolio Custom Chart",
+  "description": "Animated bar chart with staggered entrance animations, hover tooltips, and query-param-driven data regeneration.",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Initial Version",
+      "description": "Staggered bar chart with hover tooltips and animated transitions.",
+      "createdAt": "2026-04-15T00:00:00.000Z",
+      "updatedAt": "2026-04-15T00:00:00.000Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2026-04-15T00:00:00.000Z",
+  "updatedAt": "2026-04-15T00:00:00.000Z"
+}

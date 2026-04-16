@@ -1,0 +1,17 @@
+{
+  "id": "portfolio-token-bar",
+  "name": "Portfolio Token Bar",
+  "description": "Proportional token bar with hover-triggered dropdown showing token variants and chain breakdowns.",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Initial Version",
+      "description": "Token bar with expandable variant rows and chain details.",
+      "createdAt": "2026-04-15T00:00:00.000Z",
+      "updatedAt": "2026-04-15T00:00:00.000Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2026-04-15T00:00:00.000Z",
+  "updatedAt": "2026-04-15T00:00:00.000Z"
+}

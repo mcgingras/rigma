@@ -1,0 +1,17 @@
+{
+  "id": "token-microview",
+  "name": "Token Microview",
+  "description": "Compact token card with sparkline chart, price data, and details hover interaction.",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "Initial Version",
+      "description": "Token microview card with recharts sparkline and animated details button.",
+      "createdAt": "2026-04-15T00:00:00.000Z",
+      "updatedAt": "2026-04-15T00:00:00.000Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2026-04-15T00:00:00.000Z",
+  "updatedAt": "2026-04-15T00:00:00.000Z"
+}

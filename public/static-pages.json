@@ -104,14 +104,62 @@
       {
         "id": "v7",
         "name": "agent-container - Copy",
-        "description": "Copy of current version",
+        "description": "scroll based animation",
         "createdAt": "2025-06-26T17:30:02.042Z",
-        "updatedAt": "2025-06-26T17:30:02.042Z"
+        "updatedAt": "2025-06-26T18:47:22.733Z"
+      },
+      {
+        "id": "v8",
+        "name": "agent-container - Copy",
+        "description": "snap to top",
+        "createdAt": "2025-06-26T18:47:08.580Z",
+        "updatedAt": "2025-06-26T18:47:27.722Z"
+      },
+      {
+        "id": "v9",
+        "name": "agent-container - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-06-26T23:15:16.334Z",
+        "updatedAt": "2025-06-26T23:15:16.334Z"
       }
     ],
-    "currentVersionId": "v7",
+    "currentVersionId": "v9",
     "createdAt": "2025-06-25T19:52:45.884Z",
-    "updatedAt": "2025-06-26T17:30:08.570Z"
+    "updatedAt": "2025-06-26T23:15:16.334Z"
+  },
+  {
+    "id": "agent-container-iso",
+    "name": "Agent Container ISO",
+    "description": "Agent container individual components to isolate the container itself without having to deal with animations.",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Initial version",
+        "createdAt": "2025-06-26T22:00:14.843Z",
+        "updatedAt": "2025-06-26T22:00:14.843Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-06-26T22:00:14.843Z",
+    "updatedAt": "2025-06-27T00:41:12.637Z"
+  },
+  {
+    "id": "animations-dev-modal",
+    "name": "animations-dev-modal",
+    "description": "animations-dev-modal page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "animations-dev-modal - Initial Version",
+        "description": "Initial version",
+        "createdAt": "2025-08-05T12:12:54.334Z",
+        "updatedAt": "2025-08-05T12:12:54.334Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-08-05T12:12:54.334Z",
+    "updatedAt": "2025-08-05T12:12:54.334Z"
   },
   {
     "id": "bento",
@@ -261,6 +309,23 @@
     "updatedAt": "2025-05-14T13:12:07.828Z"
   },
   {
+    "id": "color_dodge",
+    "name": "Color Dodge",
+    "description": "Color dodge based animation",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "v1 (twitter)",
+        "description": "Initial version",
+        "createdAt": "2025-10-25T18:54:26.236Z",
+        "updatedAt": "2025-10-25T18:54:26.236Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2025-10-25T18:54:26.236Z",
+    "updatedAt": "2025-10-25T18:54:26.236Z"
+  },
+  {
     "id": "daily-report",
     "name": "daily-report",
     "description": "daily-report page",
@@ -283,6 +348,23 @@
     "currentVersionId": "v2",
     "createdAt": "2025-06-10T20:59:30.828Z",
     "updatedAt": "2025-06-11T14:34:24.272Z"
+  },
+  {
+    "id": "demo-table",
+    "name": "Demo Table",
+    "description": "Animated table with merge/unmerge rows and layout transitions.",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Table with animated row merge and unmerge.",
+        "createdAt": "2026-04-15T00:00:00.000Z",
+        "updatedAt": "2026-04-15T00:00:00.000Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2026-04-15T00:00:00.000Z",
+    "updatedAt": "2026-04-15T00:00:00.000Z"
   },
   {
     "id": "dynamic-island",
@@ -391,6 +473,23 @@
     "updatedAt": "2025-05-14T13:20:45.575Z"
   },
   {
+    "id": "iphone-mock",
+    "name": "iphone-mock",
+    "description": "iPhone mock with border beam experiment",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "v1",
+        "description": "Initial version",
+        "createdAt": "2026-04-15T00:00:00.000Z",
+        "updatedAt": "2026-04-15T00:00:00.000Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2026-04-15T00:00:00.000Z",
+    "updatedAt": "2026-04-15T00:00:00.000Z"
+  },
+  {
     "id": "noti-cards",
     "name": "Noti Cards",
     "description": "Noti Cards page",
@@ -423,6 +522,71 @@
     "currentVersionId": "v1",
     "createdAt": "2025-05-20T16:13:19.386Z",
     "updatedAt": "2025-05-20T18:10:14.761Z"
+  },
+  {
+    "id": "portfolio-custom-chart",
+    "name": "Portfolio Custom Chart",
+    "description": "Animated bar chart with staggered entrance animations, hover tooltips, and query-param-driven data regeneration.",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Staggered bar chart with hover tooltips and animated transitions.",
+        "createdAt": "2026-04-15T00:00:00.000Z",
+        "updatedAt": "2026-04-15T00:00:00.000Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2026-04-15T00:00:00.000Z",
+    "updatedAt": "2026-04-15T00:00:00.000Z"
+  },
+  {
+    "id": "portfolio-token-bar",
+    "name": "Portfolio Token Bar",
+    "description": "Proportional token bar with hover-triggered dropdown showing token variants and chain breakdowns.",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Token bar with expandable variant rows and chain details.",
+        "createdAt": "2026-04-15T00:00:00.000Z",
+        "updatedAt": "2026-04-15T00:00:00.000Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2026-04-15T00:00:00.000Z",
+    "updatedAt": "2026-04-15T00:00:00.000Z"
+  },
+  {
+    "id": "slack-header",
+    "name": "slack-header",
+    "description": "slack-header page",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "slack-header - Initial Version",
+        "description": "Initial version",
+        "createdAt": "2025-08-04T23:26:18.031Z",
+        "updatedAt": "2025-08-04T23:26:18.031Z"
+      },
+      {
+        "id": "v2",
+        "name": "slack-header - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-08-05T01:47:02.179Z",
+        "updatedAt": "2025-08-05T01:47:02.179Z"
+      },
+      {
+        "id": "v3",
+        "name": "slack-header - Copy",
+        "description": "Copy of current version",
+        "createdAt": "2025-08-05T02:59:03.874Z",
+        "updatedAt": "2025-08-05T02:59:03.874Z"
+      }
+    ],
+    "currentVersionId": "v3",
+    "createdAt": "2025-08-04T23:26:18.031Z",
+    "updatedAt": "2025-08-05T02:59:03.874Z"
   },
   {
     "id": "stack",
@@ -471,6 +635,23 @@
     "currentVersionId": "v3",
     "createdAt": "2025-05-20T16:13:12.541Z",
     "updatedAt": "2025-05-20T16:13:12.541Z"
+  },
+  {
+    "id": "token-microview",
+    "name": "Token Microview",
+    "description": "Compact token card with sparkline chart, price data, and details hover interaction.",
+    "versions": [
+      {
+        "id": "v1",
+        "name": "Initial Version",
+        "description": "Token microview card with recharts sparkline and animated details button.",
+        "createdAt": "2026-04-15T00:00:00.000Z",
+        "updatedAt": "2026-04-15T00:00:00.000Z"
+      }
+    ],
+    "currentVersionId": "v1",
+    "createdAt": "2026-04-15T00:00:00.000Z",
+    "updatedAt": "2026-04-15T00:00:00.000Z"
   },
   {
     "id": "trad-nav",

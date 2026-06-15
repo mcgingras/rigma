@@ -15,8 +15,8 @@ export default function IPhoneMockPage() {
   const [showPill, setShowPill] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const pillTimerRef = useRef<ReturnType<typeof setTimeout>>();
-  const expandTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const pillTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const expandTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const handleSheetAction = useCallback(() => {
     setPhase("video");

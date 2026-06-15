@@ -8,11 +8,13 @@ import { isDevMode } from "@/lib/mode";
 import PageList from "@/components/PageList";
 
 export default function Home() {
-  const { refreshPages } = usePageStore();
+  const { pages, refreshPages } = usePageStore();
   const isDev = isDevMode();
-  const [isGrid, setGrid] = useState(false);
+  const [view, setView] = useState<"list" | "grid">("list");
+
   useEffect(() => {
     refreshPages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleNewPage = async () => {
@@ -20,7 +22,6 @@ export default function Home() {
     let counter = 1;
     let finalName = name;
 
-    // Check if name exists
     const existingPages = await fetch("/api/pages").then((res) => res.json());
     while (existingPages.some((p: Page) => p.name === finalName)) {
       finalName = `${name}${counter}`;
@@ -40,42 +41,127 @@ export default function ${finalName}() {
 
     await fetch("/api/pages", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: finalName,
-        content,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: finalName, content }),
     });
 
     refreshPages();
   };
 
-  return (
-    <main className="min-h-screen">
-      <div className="border-b border-zinc-800 p-4 flex justify-between items-center bg-zinc-900">
-        <h1 className="text-2xl font-bold">UI prototypes</h1>
-        <div className="flex flex-row gap-2"></div>
-        {isDev && (
-          <button
-            onClick={handleNewPage}
-            className="text-base font-bold text-zinc-300 hover:text-zinc-400 bg-zinc-700 px-4 py-2 rounded-lg cursor-pointer"
-          >
-            New Page
-          </button>
-        )}
-        <button
-          onClick={() => setGrid(!isGrid)}
-          className="text-base font-bold text-zinc-300 hover:text-zinc-400 bg-zinc-700 px-4 py-2 rounded-lg cursor-pointer"
-        >
-          {isGrid ? "List" : "Grid"}
-        </button>
-      </div>
+  const count = Array.isArray(pages) ? pages.length : 0;
 
-      <div className="h-[calc(100vh-73px)] overflow-auto">
-        {isGrid ? <PageGrid /> : <PageList />}
+  return (
+    <main className="min-h-screen bg-zinc-950 text-zinc-100">
+      <header className="sticky top-0 z-40 border-b border-zinc-800/80 bg-zinc-950/85 backdrop-blur">
+        <div className="flex h-12 items-center justify-between px-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span className="font-mono text-[13px] font-medium tracking-tight text-zinc-100">
+                rigma
+              </span>
+            </div>
+            <span className="text-zinc-700">/</span>
+            <span className="font-mono text-[12px] text-zinc-400">
+              prototypes
+            </span>
+            <span className="ml-1 rounded-sm border border-zinc-800 px-1.5 py-0.5 font-mono text-[10px] tabular-nums text-zinc-400">
+              {count}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-1.5">
+            <ViewToggle view={view} onChange={setView} />
+            {isDev && (
+              <button
+                onClick={handleNewPage}
+                className="ml-1 h-7 rounded-md border border-zinc-800 bg-zinc-900 px-2.5 font-mono text-[11px] text-zinc-200 transition-colors hover:border-zinc-700 hover:bg-zinc-800"
+              >
+                + new
+              </button>
+            )}
+          </div>
+        </div>
+      </header>
+
+      <div className="h-[calc(100vh-48px)] overflow-auto">
+        {view === "grid" ? <PageGrid /> : <PageList />}
       </div>
     </main>
+  );
+}
+
+function ViewToggle({
+  view,
+  onChange,
+}: {
+  view: "list" | "grid";
+  onChange: (v: "list" | "grid") => void;
+}) {
+  return (
+    <div className="flex h-7 items-center rounded-md border border-zinc-800 bg-zinc-900 p-0.5">
+      <button
+        onClick={() => onChange("list")}
+        aria-label="List view"
+        className={`flex h-6 w-7 items-center justify-center rounded-[4px] transition-colors ${
+          view === "list"
+            ? "bg-zinc-800 text-zinc-100"
+            : "text-zinc-500 hover:text-zinc-300"
+        }`}
+      >
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path
+            d="M2 3h8M2 6h8M2 9h8"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinecap="round"
+          />
+        </svg>
+      </button>
+      <button
+        onClick={() => onChange("grid")}
+        aria-label="Grid view"
+        className={`flex h-6 w-7 items-center justify-center rounded-[4px] transition-colors ${
+          view === "grid"
+            ? "bg-zinc-800 text-zinc-100"
+            : "text-zinc-500 hover:text-zinc-300"
+        }`}
+      >
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <rect
+            x="2"
+            y="2"
+            width="3.5"
+            height="3.5"
+            stroke="currentColor"
+            strokeWidth="1.1"
+          />
+          <rect
+            x="6.5"
+            y="2"
+            width="3.5"
+            height="3.5"
+            stroke="currentColor"
+            strokeWidth="1.1"
+          />
+          <rect
+            x="2"
+            y="6.5"
+            width="3.5"
+            height="3.5"
+            stroke="currentColor"
+            strokeWidth="1.1"
+          />
+          <rect
+            x="6.5"
+            y="6.5"
+            width="3.5"
+            height="3.5"
+            stroke="currentColor"
+            strokeWidth="1.1"
+          />
+        </svg>
+      </button>
+    </div>
   );
 }

@@ -23,7 +23,7 @@ export default function PagePreview({ pageId }: PagePreviewProps) {
         setError(null);
       } catch (error) {
         console.error("Error fetching screenshot:", error);
-        setError("Failed to load preview");
+        setError("preview unavailable");
       }
     };
 
@@ -32,16 +32,35 @@ export default function PagePreview({ pageId }: PagePreviewProps) {
 
   if (error) {
     return (
-      <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-400">
-        {error}
+      <div className="flex h-full w-full items-center justify-center bg-zinc-950">
+        <div className="flex flex-col items-center gap-1.5 text-zinc-600">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect
+              x="2"
+              y="3"
+              width="12"
+              height="10"
+              rx="1"
+              stroke="currentColor"
+              strokeWidth="1.1"
+            />
+            <path
+              d="M2 11l3.5-3.5 2.5 2.5 2-2L14 11"
+              stroke="currentColor"
+              strokeWidth="1.1"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span className="font-mono text-[10px]">{error}</span>
+        </div>
       </div>
     );
   }
 
   if (!previewUrl) {
     return (
-      <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-400">
-        Loading preview...
+      <div className="relative h-full w-full overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-zinc-900 via-zinc-900/50 to-zinc-950" />
       </div>
     );
   }

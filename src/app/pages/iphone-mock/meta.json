@@ -1,0 +1,17 @@
+{
+  "id": "iphone-mock",
+  "name": "iphone-mock",
+  "description": "iPhone mock with border beam experiment",
+  "versions": [
+    {
+      "id": "v1",
+      "name": "v1",
+      "description": "Initial version",
+      "createdAt": "2026-04-15T00:00:00.000Z",
+      "updatedAt": "2026-04-15T00:00:00.000Z"
+    }
+  ],
+  "currentVersionId": "v1",
+  "createdAt": "2026-04-15T00:00:00.000Z",
+  "updatedAt": "2026-04-15T00:00:00.000Z"
+}
